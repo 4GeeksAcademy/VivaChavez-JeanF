@@ -78,7 +78,7 @@
                 <span>Subtotal</span>
                 <span class="cart-dropdown__subtotal-value" id="cartDropdownSubtotal">1.123€</span>
               </div>
-              <a href="#cartSection" class="btn btn--primary cart-dropdown__checkout" id="cartDropdownCheckout">
+              <a href="#checkoutSection" class="btn btn--primary cart-dropdown__checkout" id="cartDropdownCheckout">
                 &#x1F6CD; Proceder al pago
               </a>
               <a href="#cartSection" class="cart-dropdown__view-all">
@@ -1120,7 +1120,7 @@
               </div>
 
               <button class="btn btn--primary cart__checkout-btn" id="cartCheckoutBtn" aria-label="Proceder al pago">
-                &#x1F6D2; Comprar ahora
+                &#x1F6D2; Ir al checkout
               </button>
 
               <div class="cart__summary-coupon">
@@ -1146,6 +1146,157 @@
         </div>
       </div>
     </section>
+
+    <!-- ============================================
+         CHECKOUT — Flujo en 3 pasos
+         ============================================ -->
+    <section class="checkout section" id="checkoutSection" aria-label="Formulario de pago en 3 pasos">
+      <div class="container">
+        <header class="section__header checkout__header">
+          <div>
+            <h2 class="section__title">Checkout Seguro</h2>
+            <p class="section__subtitle">Completa tu compra en tres pasos</p>
+          </div>
+        </header>
+
+        <div class="checkout__layout">
+          <div class="checkout__main">
+            <div class="checkout__prelude" aria-label="Resumen previo al checkout">
+              <p class="checkout__prelude-tag">Pre-checkout</p>
+              <div class="checkout__prelude-kpis">
+                <div class="checkout__prelude-kpi">
+                  <span class="checkout__prelude-label">Art&iacute;culos</span>
+                  <strong class="checkout__prelude-value" id="checkoutPreviewItems">0</strong>
+                </div>
+                <div class="checkout__prelude-kpi">
+                  <span class="checkout__prelude-label">Subtotal</span>
+                  <strong class="checkout__prelude-value" id="checkoutPreviewSubtotal">0€</strong>
+                </div>
+                <div class="checkout__prelude-kpi checkout__prelude-kpi--total">
+                  <span class="checkout__prelude-label">Total</span>
+                  <strong class="checkout__prelude-value" id="checkoutPreviewTotal">0€</strong>
+                </div>
+              </div>
+            </div>
+
+            <ol class="checkout__steps" id="checkoutSteps" aria-label="Pasos del checkout">
+              <li class="checkout__step checkout__step--active" data-step-indicator="1">
+                <span class="checkout__step-index">1</span>
+                <span class="checkout__step-label">Datos personales</span>
+              </li>
+              <li class="checkout__step" data-step-indicator="2">
+                <span class="checkout__step-index">2</span>
+                <span class="checkout__step-label">Direcci&oacute;n de entrega</span>
+              </li>
+              <li class="checkout__step" data-step-indicator="3">
+                <span class="checkout__step-index">3</span>
+                <span class="checkout__step-label">Pago con tarjeta</span>
+              </li>
+            </ol>
+
+            <form class="checkout__form" id="checkoutForm" novalidate>
+              <section class="checkout-panel checkout-panel--active" data-step-panel="1" aria-labelledby="checkoutStepPersonalTitle">
+                <h3 class="checkout-panel__title" id="checkoutStepPersonalTitle">Datos personales</h3>
+                <div class="checkout-grid checkout-grid--2">
+                  <div class="checkout-field">
+                    <label for="checkoutName">Nombre</label>
+                    <input type="text" id="checkoutName" name="nombre" autocomplete="given-name" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutLastName">Apellido</label>
+                    <input type="text" id="checkoutLastName" name="apellido" autocomplete="family-name" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutEmail">Correo electr&oacute;nico</label>
+                    <input type="email" id="checkoutEmail" name="email" autocomplete="email" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutPhone">Tel&eacute;fono</label>
+                    <input type="tel" id="checkoutPhone" name="telefono" autocomplete="tel" required />
+                  </div>
+                </div>
+                <div class="checkout__actions">
+                  <button type="button" class="btn btn--primary checkout-next" data-next-step="2">Continuar &#x2192;</button>
+                </div>
+              </section>
+
+              <section class="checkout-panel" data-step-panel="2" aria-labelledby="checkoutStepAddressTitle">
+                <h3 class="checkout-panel__title" id="checkoutStepAddressTitle">Direcci&oacute;n de entrega</h3>
+                <div class="checkout-grid checkout-grid--2">
+                  <div class="checkout-field checkout-field--full">
+                    <label for="checkoutAddress">Direcci&oacute;n</label>
+                    <input type="text" id="checkoutAddress" name="direccion" autocomplete="street-address" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutCity">Ciudad</label>
+                    <input type="text" id="checkoutCity" name="ciudad" autocomplete="address-level2" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutRegion">Provincia / Estado</label>
+                    <input type="text" id="checkoutRegion" name="provincia" autocomplete="address-level1" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutZip">C&oacute;digo postal</label>
+                    <input type="text" id="checkoutZip" name="codigoPostal" autocomplete="postal-code" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutCountry">Pa&iacute;s</label>
+                    <input type="text" id="checkoutCountry" name="pais" autocomplete="country-name" value="Espa&ntilde;a" required />
+                  </div>
+                </div>
+                <div class="checkout__actions">
+                  <button type="button" class="btn btn--secondary checkout-prev" data-prev-step="1">&#x2190; Volver</button>
+                  <button type="button" class="btn btn--primary checkout-next" data-next-step="3">Continuar &#x2192;</button>
+                </div>
+              </section>
+
+              <section class="checkout-panel" data-step-panel="3" aria-labelledby="checkoutStepPaymentTitle">
+                <h3 class="checkout-panel__title" id="checkoutStepPaymentTitle">Pago con tarjeta</h3>
+                <div class="checkout-grid checkout-grid--2">
+                  <div class="checkout-field checkout-field--full">
+                    <label for="checkoutCardName">Titular de la tarjeta</label>
+                    <input type="text" id="checkoutCardName" name="titularTarjeta" autocomplete="cc-name" required />
+                  </div>
+                  <div class="checkout-field checkout-field--full">
+                    <label for="checkoutCardNumber">N&uacute;mero de tarjeta</label>
+                    <input type="text" id="checkoutCardNumber" name="numeroTarjeta" autocomplete="cc-number" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutCardExpiry">Caducidad</label>
+                    <input type="text" id="checkoutCardExpiry" name="caducidadTarjeta" autocomplete="cc-exp" inputmode="numeric" maxlength="5" placeholder="MM/AA" required />
+                  </div>
+                  <div class="checkout-field">
+                    <label for="checkoutCardCvv">CVV</label>
+                    <input type="password" id="checkoutCardCvv" name="cvvTarjeta" autocomplete="cc-csc" inputmode="numeric" maxlength="4" placeholder="123" required />
+                  </div>
+                </div>
+                <div class="checkout__actions">
+                  <button type="button" class="btn btn--secondary checkout-prev" data-prev-step="2">&#x2190; Volver</button>
+                  <button type="submit" class="btn btn--primary" id="checkoutSubmitBtn">Pagar ahora</button>
+                </div>
+                <p class="checkout__processing" id="checkoutProcessingMsg" aria-live="polite">
+                  <span id="checkoutProcessingLabel">Monto a cobrar:</span>
+                  <strong id="checkoutProcessingAmount">0€</strong>
+                </p>
+              </section>
+
+              <p class="checkout__feedback" id="checkoutFeedback" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="checkout-popup" id="checkoutPopup" role="dialog" aria-modal="true" aria-labelledby="checkoutPopupTitle" aria-hidden="true">
+      <div class="checkout-popup__backdrop" id="checkoutPopupBackdrop"></div>
+      <div class="checkout-popup__card" role="document">
+        <p class="checkout-popup__eyebrow">Pago confirmado</p>
+        <h3 class="checkout-popup__title" id="checkoutPopupTitle">Gracias por tu compra</h3>
+        <p class="checkout-popup__text">Tu pedido fue procesado correctamente.</p>
+        <p class="checkout-popup__amount" id="checkoutPopupAmount">Total pagado: 0,00€</p>
+        <button type="button" class="btn btn--primary checkout-popup__btn" id="checkoutPopupClose">Continuar</button>
+      </div>
+    </div>
 
     <!-- ============================================
          NEWSLETTER
@@ -1908,6 +2059,7 @@
       function syncAll() {
         renderizarCarritoCompleto();
         renderizarDropdownCarrito();
+        updateCheckoutSummary();
       }
 
       // ============================================
@@ -1976,15 +2128,10 @@
       if (checkoutBtn) {
         checkoutBtn.addEventListener('click', function() {
           if (cartData.length === 0) return;
-          var originalText = this.innerHTML;
-          this.innerHTML = '&#x2713; Pedido realizado';
-          this.style.background = '#27ae60';
-          this.disabled = true;
-          setTimeout(function() {
-            checkoutBtn.innerHTML = originalText;
-            checkoutBtn.style.background = '';
-            checkoutBtn.disabled = false;
-          }, 3000);
+          var checkoutSection = document.getElementById('checkoutSection');
+          if (checkoutSection) {
+            checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
       }
 
@@ -2028,6 +2175,7 @@
             var totalEl = document.getElementById('cartTotal');
             if (taxEl) taxEl.textContent = iva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
             if (totalEl) totalEl.textContent = total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            updateCheckoutSummary();
           } else {
             this.textContent = 'C&oacute;digo inv&aacute;lido';
             this.style.background = '#e74c3c';
@@ -2044,16 +2192,245 @@
         });
       }
 
+      // ---------- Checkout en 3 pasos ----------
+      var checkoutForm = document.getElementById('checkoutForm');
+      var checkoutFeedback = document.getElementById('checkoutFeedback');
+      var checkoutSteps = document.querySelectorAll('[data-step-indicator]');
+      var checkoutPanels = document.querySelectorAll('[data-step-panel]');
+      var checkoutNextBtns = document.querySelectorAll('.checkout-next');
+      var checkoutPrevBtns = document.querySelectorAll('.checkout-prev');
+      var checkoutCardNumber = document.getElementById('checkoutCardNumber');
+      var checkoutCardExpiry = document.getElementById('checkoutCardExpiry');
+      var checkoutCardCvv = document.getElementById('checkoutCardCvv');
+      var checkoutProcessingMsg = document.getElementById('checkoutProcessingMsg');
+      var checkoutProcessingLabel = document.getElementById('checkoutProcessingLabel');
+      var checkoutProcessingAmount = document.getElementById('checkoutProcessingAmount');
+      var checkoutPopup = document.getElementById('checkoutPopup');
+      var checkoutPopupBackdrop = document.getElementById('checkoutPopupBackdrop');
+      var checkoutPopupClose = document.getElementById('checkoutPopupClose');
+      var checkoutPopupAmount = document.getElementById('checkoutPopupAmount');
+      var checkoutPreviewItems = document.getElementById('checkoutPreviewItems');
+      var checkoutPreviewSubtotal = document.getElementById('checkoutPreviewSubtotal');
+      var checkoutPreviewTotal = document.getElementById('checkoutPreviewTotal');
+
+      var checkoutCurrentStep = 1;
+
+      function sanitizeCurrencyToNumber(value) {
+        var cleaned = (value || '').replace(/[^\d,.-]/g, '').replace(/\./g, '').replace(',', '.');
+        var amount = parseFloat(cleaned);
+        return isNaN(amount) ? 0 : amount;
+      }
+
+      function updateCheckoutSummary() {
+        var subtotalEl = document.getElementById('cartSubtotal');
+        var totalEl = document.getElementById('cartTotal');
+        var itemsCount = 0;
+
+        for (var i = 0; i < cartData.length; i++) {
+          itemsCount += cartData[i].cantidad;
+        }
+
+        if (checkoutPreviewItems) checkoutPreviewItems.textContent = String(itemsCount);
+        if (checkoutPreviewSubtotal) checkoutPreviewSubtotal.textContent = subtotalEl ? subtotalEl.textContent : '0€';
+        if (checkoutPreviewTotal) checkoutPreviewTotal.textContent = totalEl ? totalEl.textContent : '0€';
+        if (!checkoutProcessingAmount) return;
+        checkoutProcessingAmount.textContent = totalEl ? totalEl.textContent : '0€';
+      }
+
+      function openCheckoutPopup(amountText) {
+        if (!checkoutPopup) return;
+        if (checkoutPopupAmount) {
+          checkoutPopupAmount.textContent = 'Total pagado: ' + amountText;
+        }
+        checkoutPopup.classList.add('is-visible');
+        checkoutPopup.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCheckoutPopup() {
+        if (!checkoutPopup) return;
+        checkoutPopup.classList.remove('is-visible');
+        checkoutPopup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function showCheckoutStep(step) {
+        checkoutCurrentStep = step;
+
+        checkoutSteps.forEach(function(item) {
+          var itemStep = parseInt(item.getAttribute('data-step-indicator'), 10);
+          item.classList.remove('checkout__step--active', 'checkout__step--done');
+          if (itemStep < step) item.classList.add('checkout__step--done');
+          if (itemStep === step) item.classList.add('checkout__step--active');
+        });
+
+        checkoutPanels.forEach(function(panel) {
+          var panelStep = parseInt(panel.getAttribute('data-step-panel'), 10);
+          panel.classList.remove('checkout-panel--active');
+          if (panelStep === step) {
+            panel.classList.add('checkout-panel--active');
+          }
+        });
+      }
+
+      function validateStep(step) {
+        if (!checkoutForm) return false;
+        var panel = checkoutForm.querySelector('[data-step-panel="' + step + '"]');
+        if (!panel) return false;
+
+        var requiredFields = panel.querySelectorAll('input[required]');
+        var isValid = true;
+
+        requiredFields.forEach(function(field) {
+          field.classList.remove('checkout-input--error');
+          if (!field.value.trim()) {
+            field.classList.add('checkout-input--error');
+            isValid = false;
+          }
+        });
+
+        if (step === 3 && isValid) {
+          var numberVal = (checkoutCardNumber.value || '').replace(/\s+/g, '');
+          var expiryVal = checkoutCardExpiry.value || '';
+          var cvvVal = checkoutCardCvv.value || '';
+          var expValid = /^(0[1-9]|1[0-2])\/(\d{2})$/.test(expiryVal);
+          var numValid = /^\d{16}$/.test(numberVal);
+          var cvvValid = /^\d{3,4}$/.test(cvvVal);
+
+          if (!numValid) {
+            checkoutCardNumber.classList.add('checkout-input--error');
+            isValid = false;
+          }
+          if (!expValid) {
+            checkoutCardExpiry.classList.add('checkout-input--error');
+            isValid = false;
+          }
+          if (!cvvValid) {
+            checkoutCardCvv.classList.add('checkout-input--error');
+            isValid = false;
+          }
+        }
+
+        if (checkoutFeedback) {
+          checkoutFeedback.textContent = isValid ? '' : 'Completa correctamente los campos obligatorios para continuar.';
+          checkoutFeedback.style.color = isValid ? '' : '#e74c3c';
+        }
+
+        return isValid;
+      }
+
+      if (checkoutCardNumber) {
+        checkoutCardNumber.addEventListener('input', function() {
+          var digits = this.value.replace(/\D/g, '').slice(0, 16);
+          this.value = digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+        });
+      }
+
+      if (checkoutCardExpiry) {
+        checkoutCardExpiry.addEventListener('input', function() {
+          var digits = this.value.replace(/\D/g, '').slice(0, 4);
+          if (digits.length >= 3) {
+            this.value = digits.slice(0, 2) + '/' + digits.slice(2);
+          } else {
+            this.value = digits;
+          }
+        });
+      }
+
+      if (checkoutCardCvv) {
+        checkoutCardCvv.addEventListener('input', function() {
+          this.value = this.value.replace(/\D/g, '').slice(0, 4);
+        });
+      }
+
+      checkoutNextBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          if (!validateStep(checkoutCurrentStep)) return;
+          var next = parseInt(this.getAttribute('data-next-step'), 10);
+          showCheckoutStep(next);
+        });
+      });
+
+      checkoutPrevBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var prev = parseInt(this.getAttribute('data-prev-step'), 10);
+          showCheckoutStep(prev);
+        });
+      });
+
+      if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!validateStep(3)) return;
+
+          var submitBtn = document.getElementById('checkoutSubmitBtn');
+          if (!submitBtn) return;
+
+          var originalText = submitBtn.textContent;
+          var totalAmountText = checkoutProcessingAmount ? checkoutProcessingAmount.textContent : '0€';
+          var totalValue = sanitizeCurrencyToNumber(totalAmountText);
+          submitBtn.textContent = 'Procesando pago...';
+          submitBtn.disabled = true;
+          if (checkoutProcessingMsg) {
+            if (checkoutProcessingLabel) checkoutProcessingLabel.textContent = 'Procesando cobro de';
+            if (checkoutProcessingAmount) {
+              checkoutProcessingAmount.textContent = totalValue.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            }
+          }
+
+          setTimeout(function() {
+            if (checkoutFeedback) {
+              checkoutFeedback.textContent = '&#x2713; Pago confirmado. Gracias por tu compra.';
+              checkoutFeedback.style.color = '#27ae60';
+            }
+
+            submitBtn.textContent = '&#x2713; Pedido completado';
+            openCheckoutPopup(totalValue.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€');
+
+            setTimeout(function() {
+              submitBtn.textContent = originalText;
+              submitBtn.disabled = false;
+              checkoutForm.reset();
+              if (checkoutProcessingLabel) checkoutProcessingLabel.textContent = 'Monto a cobrar:';
+              updateCheckoutSummary();
+              var countryInput = document.getElementById('checkoutCountry');
+              if (countryInput) countryInput.value = 'España';
+              showCheckoutStep(1);
+            }, 2800);
+          }, 1200);
+        });
+      }
+
+      if (checkoutPopupClose) {
+        checkoutPopupClose.addEventListener('click', closeCheckoutPopup);
+      }
+
+      if (checkoutPopupBackdrop) {
+        checkoutPopupBackdrop.addEventListener('click', closeCheckoutPopup);
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && checkoutPopup && checkoutPopup.classList.contains('is-visible')) {
+          closeCheckoutPopup();
+        }
+      });
+
       // ---------- Cerrar dropdown al hacer clic en "Proceder al pago" ----------
       var checkoutLink = document.getElementById('cartDropdownCheckout');
       if (checkoutLink) {
         checkoutLink.addEventListener('click', function(e) {
           cerrarDropdownCarrito();
+          var checkoutSection = document.getElementById('checkoutSection');
+          if (checkoutSection) {
+            e.preventDefault();
+            checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
       }
 
       // ---------- Inicializar ----------
       syncAll();
+      showCheckoutStep(1);
 
     })();
   </script>
