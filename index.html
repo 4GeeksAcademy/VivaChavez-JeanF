@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VivaChavez — Moda Francesa de Lujo · Tienda Oficial</title>
+  <meta name="description" content="Descubre la nueva colección de VivaChavez, la marca francesa que redefine la elegancia. Calzado, camisas, pantalones y accesorios con diseño moderno." />
+  <meta name="keywords" content="VivaChavez, moda francesa, ropa, calzado, camisas, pantalones, accesorios, tienda online, lujo, elegancia" />
+  <meta name="author" content="VivaChavez" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="VivaChavez — Moda Francesa de Lujo · Tienda Oficial" />
+  <meta property="og:description" content="Descubre la nueva colección de VivaChavez, la marca francesa que redefine la elegancia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vivachavez.com" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VivaChavez — Moda Francesa de Lujo" />
+  <meta name="twitter:description" content="Descubre la nueva colección de VivaChavez, la marca francesa que redefine la elegancia." />
+  <link rel="canonical" href="https://vivachavez.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       NAVBAR — Reutilizable en todas las vistas
+       ============================================ -->
+  <header class="navbar" role="banner" aria-label="Barra de navegación principal">
+    <div class="container">
+      <!-- Logo -->
+      <a href="/" class="navbar__logo" aria-label="VivaChavez — Ir al inicio">
+        <span class="navbar__logo-icon" aria-hidden="true">V</span>
+        VivaChavez
+      </a>
+
+      <!-- Barra de búsqueda -->
+      <div class="navbar__search" role="search" aria-label="Buscar productos">
+        <span class="navbar__search-icon" aria-hidden="true">&#x1F50D;</span>
+        <input
+          type="search"
+          class="navbar__search-input"
+          placeholder="Buscar en la tienda…"
+          aria-label="Buscar productos"
+        />
+      </div>
+
+      <!-- Acciones de usuario -->
+      <nav class="navbar__actions" aria-label="Acciones de usuario">
+        <button class="navbar__btn navbar__btn--hide-mobile" aria-label="Mi cuenta" title="Mi cuenta">
+          &#x1F464;
+        </button>
+        <button class="navbar__btn navbar__btn--hide-mobile" aria-label="Favoritos" title="Favoritos">
+          &#x2661;
+        </button>
+        <button class="navbar__btn" aria-label="Carrito de compras" title="Carrito">
+          &#x1F6CD;
+          <span class="navbar__btn-badge" aria-label="3 artículos en el carrito">3</span>
+        </button>
+        <button class="navbar__menu-btn" id="menuToggle" aria-label="Abrir menú móvil" aria-expanded="false">
+          &#x2630;
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============================================
+       MOBILE MENU — Overlay + Panel lateral
+       ============================================ -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <aside class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación móvil">
+    <div class="mobile-menu__header">
+      <span class="navbar__logo">
+        <span class="navbar__logo-icon" aria-hidden="true">V</span>
+        VivaChavez
+      </span>
+      <button class="mobile-menu__close" id="menuClose" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <nav class="mobile-menu__nav" aria-label="Navegación móvil">
+      <a href="/" class="mobile-menu__item" aria-current="page">
+        <span class="mobile-menu__item-icon" aria-hidden="true">&#x1F3E0;</span>
+        Inicio
+      </a>
+      <a href="/coleccion" class="mobile-menu__item">
+        <span class="mobile-menu__item-icon" aria-hidden="true">&#x1F457;</span>
+        Colección
+      </a>
+      <a href="/nuevos" class="mobile-menu__item">
+        <span class="mobile-menu__item-icon" aria-hidden="true">&#x2728;</span>
+        Nuevos Lanzamientos
+      </a>
+      <a href="/mas-vendidos" class="mobile-menu__item">
+        <span class="mobile-menu__item-icon" aria-hidden="true">&#x1F525;</span>
+        Más Vendidos
+      </a>
+      <a href="/cuenta" class="mobile-menu__item">
+        <span class="mobile-menu__item-icon" aria-hidden="true">&#x1F464;</span>
+        Mi Cuenta
+      </a>
+      <a href="/contacto" class="mobile-menu__item">
+        <span class="mobile-menu__item-icon" aria-hidden="true">&#x1F4ED;</span>
+        Contacto
+      </a>
+    </nav>
+    <div class="mobile-menu__footer">
+      <p class="mobile-menu__footer-text">&copy; 2026 VivaChavez &mdash; Paris, France</p>
+    </div>
+  </aside>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" aria-label="Colección de temporada">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__bg-circle hero__bg-circle--1"></div>
+        <div class="hero__bg-circle hero__bg-circle--2"></div>
+        <div class="hero__bg-circle hero__bg-circle--3"></div>
+      </div>
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__tag">Colección Otoño / Invierno 2026</span>
+          <h1 class="hero__title">
+            Elegancia que <span>trasciende</span> el tiempo
+          </h1>
+          <p class="hero__subtitle">
+            Descubre la nueva colección de VivaChavez: piezas únicas diseñadas en
+            París para quienes valoran la autenticidad, la calidad y el estilo
+            atemporal.
+          </p>
+          <div class="hero__actions">
+            <a href="/coleccion" class="btn btn--primary" aria-label="Ver colección completa">
+              Explorar Colección &#x2192;
+            </a>
+            <a href="/coleccion/hombre" class="btn btn--secondary" aria-label="Ver colección de hombre">
+              Colección Hombre
+            </a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <div class="hero__image-wrapper">
+            <div class="hero__image-placeholder">
+              <span class="icon-large" aria-hidden="true">&#x1F455;</span>
+              <p>Colección 2026 — VivaChavez Paris</p>
+            </div>
+            <span class="hero__image-badge" aria-label="Nueva colección">Nuevo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FEATURES / TRUST BADGES
+         ============================================ -->
+    <section class="features animate-on-scroll" aria-label="Ventajas de la tienda">
+      <div class="container">
+        <div class="features__grid">
+          <article class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">&#x1F6CD;</span>
+            <h3 class="feature-item__title">Envío Gratis</h3>
+            <p class="feature-item__desc">En pedidos superiores a 150&euro;</p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">&#x1F504;</span>
+            <h3 class="feature-item__title">Devoluciones Fáciles</h3>
+            <p class="feature-item__desc">Hasta 30 días sin costo</p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">&#x1F3F7;</span>
+            <h3 class="feature-item__title">Hecho en Francia</h3>
+            <p class="feature-item__desc">Diseño y calidad artesanal</p>
+          </article>
+          <article class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">&#x1F50A;</span>
+            <h3 class="feature-item__title">Atención 24/7</h3>
+            <p class="feature-item__desc">Soporte al cliente dedicado</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         NUEVOS LANZAMIENTOS
+         ============================================ -->
+    <section class="section" aria-label="Nuevos lanzamientos">
+      <div class="container">
+        <header class="section__header">
+          <div>
+            <h2 class="section__title">Nuevos Lanzamientos</h2>
+            <p class="section__subtitle">Lo último en diseño francés</p>
+          </div>
+          <a href="/nuevos" class="section__link" aria-label="Ver todos los nuevos lanzamientos">
+            Ver todos &#x2192;
+          </a>
+        </header>
+        <div class="products-carousel" role="list" aria-label="Lista de productos nuevos">
+          <!-- Product Card 1 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Calzado Clásico</span>
+              </div>
+              <span class="product-card__badge product-card__badge--new">Nuevo</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Zapato Oxford Premium</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="295">295&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Elegan</span>
+              </div>
+              <span class="product-card__badge product-card__badge--new">Nuevo</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa de Lino Blanca</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="189">189&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
+                <span>Pantalón Tailleur</span>
+              </div>
+              <span class="product-card__badge product-card__badge--new">Nuevo</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Pantalones</p>
+              <h3 class="product-card__name" itemprop="name">Pantalón de Vestir Gris</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="245">245&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
+                <span>Accesorio</span>
+              </div>
+              <span class="product-card__badge product-card__badge--new">Nuevo</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Cinturón de Cuero</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="135">135&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 5 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F453;</span>
+                <span>Gafas Soleil</span>
+              </div>
+              <span class="product-card__badge product-card__badge--new">Nuevo</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Gafas de Sol Doradas</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="175">175&euro;</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         MÁS VENDIDOS
+         ============================================ -->
+    <section class="section" aria-label="Más vendidos" style="background: var(--color-white);">
+      <div class="container">
+        <header class="section__header">
+          <div>
+            <h2 class="section__title">M&aacute;s Vendidos</h2>
+            <p class="section__subtitle">Los favoritos de nuestra comunidad</p>
+          </div>
+          <a href="/mas-vendidos" class="section__link" aria-label="Ver todos los más vendidos">
+            Ver todos &#x2192;
+          </a>
+        </header>
+        <div class="products-carousel" role="list" aria-label="Lista de productos más vendidos">
+          <!-- Product Card 1 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Botín Chelsea</span>
+              </div>
+              <span class="product-card__badge product-card__badge--hot">Hot</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Botín Chelsea Negro</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="320">320&euro;</span>
+                <span class="product-card__price-old">380&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 2 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Oxford</span>
+              </div>
+              <span class="product-card__badge product-card__badge--hot">Hot</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa Oxford Azul</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="159">159&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 3 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
+                <span>Pantalón Chino</span>
+              </div>
+              <span class="product-card__badge product-card__badge--hot">Hot</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Pantalones</p>
+              <h3 class="product-card__name" itemprop="name">Pantalón Chino Beige</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="185">185&euro;</span>
+                <span class="product-card__price-old">220&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 4 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F9E2;</span>
+                <span>Reloj Clásico</span>
+              </div>
+              <span class="product-card__badge product-card__badge--hot">Hot</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Reloj de Pulsera Plateado</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="450">450&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 5 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Seda</span>
+              </div>
+              <span class="product-card__badge product-card__badge--hot">Hot</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa de Seda Negra</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="275">275&euro;</span>
+                <span class="product-card__price-old">310&euro;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product Card 6 -->
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
+                <span>Bolso Tote</span>
+              </div>
+              <span class="product-card__badge product-card__badge--hot">Hot</span>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Bolso Tote de Cuero</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="390">390&euro;</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         NEWSLETTER
+         ============================================ -->
+    <section class="newsletter animate-on-scroll" aria-label="Suscríbete al boletín">
+      <div class="container">
+        <h2 class="newsletter__title">&#x1F48C; &nbsp;&Uacute;nete al C&iacute;rculo VivaChavez</h2>
+        <p class="newsletter__text">
+          S&eacute; el primero en conocer nuestras nuevas colecciones, ofertas exclusivas
+          y eventos especiales. Directamente de Par&iacute;s a tu bandeja de entrada.
+        </p>
+        <form class="newsletter__form" action="#" method="post" aria-label="Formulario de suscripción">
+          <label for="newsletter-email" class="sr-only">Correo electrónico</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            class="newsletter__input"
+            placeholder="Tu correo electrónico"
+            required
+            aria-required="true"
+          />
+          <button type="submit" class="newsletter__btn">Suscribirse</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER — Reutilizable en todas las vistas
+       ============================================ -->
+  <footer class="footer" role="contentinfo" aria-label="Pie de página">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Marca -->
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="footer__logo-icon" aria-hidden="true">V</span>
+            VivaChavez
+          </div>
+          <p class="footer__desc">
+            Fundada en Par&iacute;s, VivaChavez nace de la pasi&oacute;n por la
+            elegancia atemporal. Cada pieza es dise&ntilde;ada con los mejores
+            materiales y la artesan&iacute;a francesa m&aacute;s exquisita.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram" title="Instagram">&#x1F4F7;</a>
+            <a href="#" class="footer__social-link" aria-label="Facebook" title="Facebook">f</a>
+            <a href="#" class="footer__social-link" aria-label="Twitter" title="Twitter">&#x1D54F;</a>
+            <a href="#" class="footer__social-link" aria-label="Pinterest" title="Pinterest">P</a>
+          </div>
+        </div>
+
+        <!-- Categorías -->
+        <div>
+          <h3 class="footer__heading">Categor&iacute;as</h3>
+          <ul class="footer__list">
+            <li><a href="/calzado" class="footer__link">&#x1F460; Calzado</a></li>
+            <li><a href="/camisas" class="footer__link">&#x1F455; Camisas</a></li>
+            <li><a href="/pantalones" class="footer__link">&#x1F456; Pantalones</a></li>
+            <li><a href="/accesorios" class="footer__link">&#x1F48D; Accesorios</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="footer__heading">Legal</h3>
+          <ul class="footer__list">
+            <li><a href="/terminos" class="footer__link">T&eacute;rminos y Condiciones</a></li>
+            <li><a href="/privacidad" class="footer__link">Pol&iacute;tica de Privacidad</a></li>
+            <li><a href="/sobre-nosotros" class="footer__link">Sobre la Marca</a></li>
+            <li><a href="/devoluciones" class="footer__link">Pol&iacute;tica de Devoluciones</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto -->
+        <div>
+          <h3 class="footer__heading">Contacto</h3>
+          <ul class="footer__list">
+            <li class="footer__contact-item">
+              <span class="footer__contact-icon" aria-hidden="true">&#x1F4CD;</span>
+              <span>48 Rue de Rivoli, 75004 Paris</span>
+            </li>
+            <li class="footer__contact-item">
+              <span class="footer__contact-icon" aria-hidden="true">&#x1F4DE;</span>
+              <a href="tel:+33123456789" class="footer__link">+33 1 23 45 67 89</a>
+            </li>
+            <li class="footer__contact-item">
+              <span class="footer__contact-icon" aria-hidden="true">&#x2709;</span>
+              <a href="mailto:contact@vivachavez.com" class="footer__link">contact@vivachavez.com</a>
+            </li>
+            <li class="footer__contact-item">
+              <span class="footer__contact-icon" aria-hidden="true">&#x1F558;</span>
+              <span>Lun&ndash;S&aacute;b: 10:00&ndash;19:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 VivaChavez. Todos los derechos reservados. &mdash; Hecho con &#x2764; en Par&iacute;s.
+        </p>
+        <div class="footer__payments">
+          <span>Pagos seguros:</span>
+          <span aria-label="Visa">Visa</span>
+          <span aria-label="Mastercard">MC</span>
+          <span aria-label="American Express">Amex</span>
+          <span aria-label="PayPal">PayPal</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT — Interacciones y animaciones
+       ============================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ---------- Mobile Menu Toggle ----------
+      const menuToggle = document.getElementById('menuToggle');
+      const menuClose = document.getElementById('menuClose');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileOverlay = document.getElementById('mobileOverlay');
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        mobileOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        menuToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        mobileOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (menuToggle && menuClose && mobileMenu && mobileOverlay) {
+        menuToggle.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+            closeMenu();
+          }
+        });
+      }
+
+      // ---------- Navbar Scroll Effect ----------
+      const navbar = document.querySelector('.navbar');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+
+        lastScroll = currentScroll;
+      }, { passive: true });
+
+      // ---------- Scroll Animations (Intersection Observer) ----------
+      const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+      if (animateElements.length > 0 && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -50px 0px'
+        });
+
+        animateElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show all animated elements immediately
+        animateElements.forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      // ---------- Product Card staggered animation on scroll ----------
+      const productSections = document.querySelectorAll('.section');
+
+      if ('IntersectionObserver' in window) {
+        const cardObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              const cards = entry.target.querySelectorAll('.product-card');
+              cards.forEach(function(card, index) {
+                card.style.animationDelay = (index * 0.08) + 's';
+                card.style.animation = 'fadeInUp 0.5s ease both';
+                card.style.animationDelay = (index * 0.08) + 's';
+              });
+              cardObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        productSections.forEach(function(section) {
+          cardObserver.observe(section);
+        });
+      }
+
+      // ---------- Newsletter Form ----------
+      const newsletterForm = document.querySelector('.newsletter__form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const input = this.querySelector('.newsletter__input');
+          if (input && input.value.trim()) {
+            const btn = this.querySelector('.newsletter__btn');
+            const originalText = btn.textContent;
+            btn.textContent = '&#x2713; Suscrito';
+            input.value = '';
+            setTimeout(function() {
+              btn.textContent = originalText;
+            }, 3000);
+          }
+        });
+      }
+
+      // ---------- Wishlist toggle ----------
+      document.querySelectorAll('.product-card__wishlist').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (this.innerHTML === '&#x2661;') {
+            this.innerHTML = '&#x2764;';
+            this.style.color = '#e74c3c';
+          } else {
+            this.innerHTML = '&#x2661;';
+            this.style.color = '';
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
