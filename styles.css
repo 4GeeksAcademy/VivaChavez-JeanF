@@ -10,7 +10,7 @@
   --color-accent: #c8a47e;
   --color-accent-hover: #b8926a;
   --color-text: #2c2c2c;
-  --color-text-light: #767676;
+  --color-text-light: #5f5f5f;
   --color-white: #ffffff;
   --color-bg: #fafaf8;
   --color-border: #e5e0db;
@@ -326,6 +326,101 @@ input {
 /* ---------- Cart Dropdown (como Shein/Amazon) ---------- */
 .navbar__cart-wrapper {
   position: relative;
+}
+
+.navbar__profile-wrapper {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: -8px;
+  width: 290px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.97);
+  transform-origin: top right;
+  transition: all var(--transition-medium);
+  z-index: 1100;
+}
+
+.profile-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.profile-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-white);
+  border-left: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
+  transform: rotate(45deg);
+}
+
+.profile-dropdown__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-dropdown__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.profile-dropdown__name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.profile-dropdown__user {
+  font-size: 0.76rem;
+  color: var(--color-text-light);
+}
+
+.profile-dropdown__body {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.profile-dropdown__row {
+  display: grid;
+  gap: 2px;
+}
+
+.profile-dropdown__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--color-text-light);
+}
+
+.profile-dropdown__value {
+  font-size: 0.84rem;
+  color: var(--color-primary);
+  line-height: 1.35;
 }
 
 .cart-dropdown {
@@ -2060,6 +2155,14 @@ input {
   font-size: 0.78rem;
 }
 
+.cart__summary-coupon-msg--valid {
+  color: #27ae60;
+}
+
+.cart__summary-coupon-msg--invalid {
+  color: #e74c3c;
+}
+
 .cart__summary-security {
   margin-top: 12px;
   font-size: 0.78rem;
@@ -2420,6 +2523,75 @@ input {
   justify-content: center;
 }
 
+/* Popup de suscripcion */
+.subscription-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2350;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-medium), visibility var(--transition-medium);
+}
+
+.subscription-popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.subscription-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 26, 26, 0.38);
+  backdrop-filter: blur(2px);
+}
+
+.subscription-popup__card {
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  width: min(92vw, 430px);
+  padding: 24px;
+  text-align: center;
+  transform: translateY(14px) scale(0.98);
+  transition: transform var(--transition-medium);
+}
+
+.subscription-popup.is-visible .subscription-popup__card {
+  transform: translateY(0) scale(1);
+}
+
+.subscription-popup__eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #27ae60;
+  margin-bottom: 8px;
+}
+
+.subscription-popup__title {
+  font-family: var(--font-secondary);
+  font-size: 1.55rem;
+  line-height: 1.2;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.subscription-popup__text {
+  color: var(--color-text-light);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+.subscription-popup__btn {
+  width: 100%;
+  justify-content: center;
+}
+
 /* ---------- Newsletter ---------- */
 .newsletter {
   padding: 80px 0;
@@ -2436,7 +2608,7 @@ input {
 
 .newsletter__text {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.86);
   margin-bottom: 32px;
   max-width: 500px;
   margin-left: auto;
@@ -2462,7 +2634,7 @@ input {
 }
 
 .newsletter__input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .newsletter__input:focus {
@@ -2532,7 +2704,7 @@ input {
 .footer__desc {
   font-size: 0.85rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.74);
   margin-bottom: 20px;
 }
 
@@ -2549,7 +2721,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.9rem;
   transition: all var(--transition-fast);
 }
@@ -2578,7 +2750,7 @@ input {
 
 .footer__link {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
   transition: all var(--transition-fast);
   display: inline-flex;
   align-items: center;
@@ -2596,7 +2768,7 @@ input {
   align-items: flex-start;
   gap: 12px;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.78);
   margin-bottom: 14px;
 }
 
@@ -2617,7 +2789,7 @@ input {
 
 .footer__copy {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer__payments {
@@ -2625,7 +2797,7 @@ input {
   gap: 12px;
   align-items: center;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 /* ---------- Utility ---------- */

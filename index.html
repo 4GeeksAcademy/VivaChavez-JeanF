@@ -8,19 +8,55 @@
   <meta name="keywords" content="VivaChavez, moda francesa, ropa, calzado, camisas, pantalones, accesorios, tienda online, lujo, elegancia" />
   <meta name="author" content="VivaChavez" />
   <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#1a1a1a" />
+  <meta name="format-detection" content="telephone=no" />
   <meta property="og:title" content="VivaChavez — Moda Francesa de Lujo · Tienda Oficial" />
   <meta property="og:description" content="Descubre la nueva colección de VivaChavez, la marca francesa que redefine la elegancia." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vivachavez.com" />
+  <meta property="og:site_name" content="VivaChavez" />
   <meta property="og:locale" content="es_ES" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="VivaChavez — Moda Francesa de Lujo" />
   <meta name="twitter:description" content="Descubre la nueva colección de VivaChavez, la marca francesa que redefine la elegancia." />
+  <meta name="twitter:url" content="https://vivachavez.com" />
   <link rel="canonical" href="https://vivachavez.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  </noscript>
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://vivachavez.com/#organization",
+          "name": "VivaChavez",
+          "url": "https://vivachavez.com"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://vivachavez.com/#website",
+          "url": "https://vivachavez.com",
+          "name": "VivaChavez",
+          "inLanguage": "es",
+          "publisher": {
+            "@id": "https://vivachavez.com/#organization"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
 
@@ -48,9 +84,42 @@
 
       <!-- Acciones de usuario -->
       <nav class="navbar__actions" aria-label="Acciones de usuario">
-        <button class="navbar__btn navbar__btn--hide-mobile" aria-label="Mi cuenta" title="Mi cuenta">
-          &#x1F464;
-        </button>
+        <div class="navbar__profile-wrapper navbar__btn--hide-mobile">
+          <button
+            class="navbar__btn"
+            id="profileToggle"
+            aria-label="Mi cuenta"
+            title="Mi cuenta"
+            aria-expanded="false"
+          >
+            &#x1F464;
+          </button>
+
+          <div class="profile-dropdown" id="profileDropdown" role="dialog" aria-modal="false" aria-label="Vista previa de perfil">
+            <div class="profile-dropdown__header">
+              <div class="profile-dropdown__avatar" aria-hidden="true">&#x1F60E;</div>
+              <div>
+                <p class="profile-dropdown__name">Jeanfk10</p>
+                <p class="profile-dropdown__user">@jeanfk10</p>
+              </div>
+            </div>
+
+            <div class="profile-dropdown__body">
+              <div class="profile-dropdown__row">
+                <span class="profile-dropdown__label">Saldo</span>
+                <strong class="profile-dropdown__value">1.280,00&euro;</strong>
+              </div>
+              <div class="profile-dropdown__row">
+                <span class="profile-dropdown__label">Direcci&oacute;n</span>
+                <span class="profile-dropdown__value">48 Rue de Rivoli, Paris</span>
+              </div>
+              <div class="profile-dropdown__row">
+                <span class="profile-dropdown__label">Nivel</span>
+                <span class="profile-dropdown__value">Cliente Premium</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <button class="navbar__btn navbar__btn--hide-mobile" aria-label="Favoritos" title="Favoritos">
           &#x2661;
         </button>
@@ -163,10 +232,10 @@
             atemporal.
           </p>
           <div class="hero__actions">
-            <a href="/coleccion" class="btn btn--primary" aria-label="Ver colección completa">
+            <a href="#catalogoSection" class="btn btn--primary" aria-label="Ver colección completa">
               Explorar Colección &#x2192;
             </a>
-            <a href="/coleccion/hombre" class="btn btn--secondary" aria-label="Ver colección de hombre">
+            <a href="#coleccionHombreTarget" class="btn btn--secondary" aria-label="Ver colección de hombre">
               Colección Hombre
             </a>
           </div>
@@ -229,7 +298,7 @@
             </nav>
 
             <!-- Nombre -->
-            <h1 class="product-view__name" itemprop="name">Camisa de Lino Blanca</h1>
+            <h2 class="product-view__name" itemprop="name">Camisa de Lino Blanca</h2>
 
             <!-- Código / Referencia -->
             <p class="product-view__ref">
@@ -632,7 +701,7 @@
     <!-- ============================================
          CATÁLOGO COMPLETO — Grid 4×5 con filtros
          ============================================ -->
-    <section class="catalogo section" aria-label="Catálogo completo de productos">
+    <section class="catalogo section" id="catalogoSection" aria-label="Catálogo completo de productos">
       <div class="container">
         <header class="section__header">
           <div>
@@ -682,7 +751,7 @@
         <div class="catalogo__grid" id="catalogoGrid" role="list" aria-label="Lista de productos del catálogo">
 
           <!-- Producto 1 -->
-          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="42" data-product-id="1">
+          <article class="product-card" id="coleccionHombreTarget" role="listitem" data-categoria="Calzado" data-talla="42" data-product-id="1">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -1298,6 +1367,19 @@
       </div>
     </div>
 
+    <div class="subscription-popup" id="subscriptionPopup" role="dialog" aria-modal="true" aria-labelledby="subscriptionPopupTitle" aria-hidden="true">
+      <div class="subscription-popup__backdrop" id="subscriptionPopupBackdrop"></div>
+      <div class="subscription-popup__card" role="document">
+        <p class="subscription-popup__eyebrow">Suscripci&oacute;n confirmada</p>
+        <h3 class="subscription-popup__title" id="subscriptionPopupTitle">Te suscribiste con &eacute;xito</h3>
+        <p class="subscription-popup__text">
+          Te llegar&aacute; un correo con indicaciones y todas las novedades de VivaChavez.
+          (Simulaci&oacute;n)
+        </p>
+        <button type="button" class="btn btn--primary subscription-popup__btn" id="subscriptionPopupClose">Continuar</button>
+      </div>
+    </div>
+
     <!-- ============================================
          NEWSLETTER
          ============================================ -->
@@ -1343,9 +1425,9 @@
             materiales y la artesan&iacute;a francesa m&aacute;s exquisita.
           </p>
           <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Instagram" title="Instagram">&#x1F4F7;</a>
-            <a href="#" class="footer__social-link" aria-label="Facebook" title="Facebook">f</a>
-            <a href="#" class="footer__social-link" aria-label="Twitter" title="Twitter">&#x1D54F;</a>
+            <a href="https://www.instagram.com/fundacionhugochavez/?hl=es" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram" title="Instagram">&#x1F4F7;</a>
+            <a href="https://www.facebook.com/hugochavezofficial/?locale=es_LA" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Facebook" title="Facebook">f</a>
+            <a href="https://x.com/chavezcandanga?lang=es" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)" title="X (Twitter)">X</a>
             <a href="#" class="footer__social-link" aria-label="Pinterest" title="Pinterest">P</a>
           </div>
         </div>
@@ -1493,31 +1575,70 @@
         });
       }
 
-      // ---------- Product Card staggered animation on scroll ----------
-      const productSections = document.querySelectorAll('.section');
+      // ---------- Product Card Animations ----------
+      // El grid ya tiene animaciones CSS por defecto; evitamos re-triggers por JS para reducir layout/reflow.
 
-      if ('IntersectionObserver' in window) {
-        const cardObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (entry.isIntersecting) {
-              const cards = entry.target.querySelectorAll('.product-card');
-              cards.forEach(function(card, index) {
-                card.style.animationDelay = (index * 0.08) + 's';
-                card.style.animation = 'fadeInUp 0.5s ease both';
-                card.style.animationDelay = (index * 0.08) + 's';
-              });
-              cardObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
+      // ---------- Profile Dropdown ----------
+      var profileToggle = document.getElementById('profileToggle');
+      var profileDropdown = document.getElementById('profileDropdown');
 
-        productSections.forEach(function(section) {
-          cardObserver.observe(section);
+      function abrirPerfil() {
+        if (!profileDropdown || !profileToggle) return;
+        profileDropdown.classList.add('open');
+        profileToggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function cerrarPerfil() {
+        if (!profileDropdown || !profileToggle) return;
+        profileDropdown.classList.remove('open');
+        profileToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (profileToggle && profileDropdown) {
+        profileToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (profileDropdown.classList.contains('open')) {
+            cerrarPerfil();
+          } else {
+            abrirPerfil();
+          }
+        });
+
+        document.addEventListener('click', function(e) {
+          var wrapper = document.querySelector('.navbar__profile-wrapper');
+          if (wrapper && !wrapper.contains(e.target)) {
+            cerrarPerfil();
+          }
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && profileDropdown.classList.contains('open')) {
+            cerrarPerfil();
+            profileToggle.focus();
+          }
         });
       }
 
       // ---------- Newsletter Form ----------
       const newsletterForm = document.querySelector('.newsletter__form');
+      var subscriptionPopup = document.getElementById('subscriptionPopup');
+      var subscriptionPopupBackdrop = document.getElementById('subscriptionPopupBackdrop');
+      var subscriptionPopupClose = document.getElementById('subscriptionPopupClose');
+
+      function openSubscriptionPopup() {
+        if (!subscriptionPopup) return;
+        subscriptionPopup.classList.add('is-visible');
+        subscriptionPopup.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeSubscriptionPopup() {
+        if (!subscriptionPopup) return;
+        subscriptionPopup.classList.remove('is-visible');
+        subscriptionPopup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
       if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
           e.preventDefault();
@@ -1525,14 +1646,29 @@
           if (input && input.value.trim()) {
             const btn = this.querySelector('.newsletter__btn');
             const originalText = btn.textContent;
-            btn.textContent = '&#x2713; Suscrito';
+            btn.textContent = '✓ Suscrito';
             input.value = '';
             setTimeout(function() {
               btn.textContent = originalText;
-            }, 3000);
+            }, 2200);
+            openSubscriptionPopup();
           }
         });
       }
+
+      if (subscriptionPopupClose) {
+        subscriptionPopupClose.addEventListener('click', closeSubscriptionPopup);
+      }
+
+      if (subscriptionPopupBackdrop) {
+        subscriptionPopupBackdrop.addEventListener('click', closeSubscriptionPopup);
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && subscriptionPopup && subscriptionPopup.classList.contains('is-visible')) {
+          closeSubscriptionPopup();
+        }
+      });
 
       // ---------- Catálogo: Filtros por categoría y talla ----------
       const filtroCategoria = document.getElementById('filtro-categoria');
@@ -1647,8 +1783,11 @@
             const current = parseInt(badge.textContent, 10);
             badge.textContent = current + parseInt(qty, 10);
             badge.style.animation = 'none';
-            badge.offsetHeight; // reflow
-            badge.style.animation = 'pulse 0.3s ease';
+            requestAnimationFrame(function() {
+              requestAnimationFrame(function() {
+                badge.style.animation = 'pulse 0.3s ease';
+              });
+            });
           }
 
           setTimeout(function() {
@@ -1658,44 +1797,53 @@
         });
       }
 
-      // ---------- PRODUCT DATABASE (31 productos) ----------
-      const productosDB = {
-        1: {  nombre: 'Zapato Oxford Premium', categoria: 'Calzado', ref: 'VC-OX-001', precio: '295', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '42', badge: '', materiales: 'Cuero italiano 100% · Suela de caucho natural · Costuras Goodyear', uso: 'Oficina ejecutiva, bodas formales, eventos de gala, reuniones de negocio', cuidados: 'Limpiar con paño húmedo · Usar crema hidratante para cuero · Evitar exposición prolongada al sol', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Este zapato Oxford Premium es la máxima expresión de la elegancia clásica. Fabricado en cuero italiano de primera calidad, cada par es ensamblado a mano por artesanos expertos con la tradicional técnica Goodyear, garantizando durabilidad y confort excepcionales.' },
-        2: {  nombre: 'Camisa de Lino Blanca', categoria: 'Camisas', ref: 'VC-LN-001', precio: '189', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Lino 100% natural · Botones de nácar · Costuras reforzadas', uso: 'Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio', cuidados: 'Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta camisa de lino blanco es la pieza esencial que toda persona elegante necesita en su armario. Confeccionada en lino 100% natural de la región de Bretaña, Francia, ofrece una frescura incomparable y una caída impecable.' },
-        3: {  nombre: 'Pantalón de Vestir Gris', categoria: 'Pantalones', ref: 'VC-PT-001', precio: '245', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Lana virgen 100% · Forro de viscosa · Cremallera YKK', uso: 'Oficina ejecutiva, reuniones formales, cenas de negocios, entrevistas', cuidados: 'Lavar en seco · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de vestir gris perla combina la tradición sartorial francesa con un corte moderno. La lana virgen de primera calidad garantiza un drapeado perfecto y una durabilidad excepcional.' },
-        4: {  nombre: 'Cinturón de Cuero', categoria: 'Accesorios', ref: 'VC-AC-001', precio: '135', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Cuero vacuno 100% · Hebilla de acero inoxidable · Costuras a mano', uso: 'Uso diario, oficina, eventos casuales y formales', cuidados: 'Limpiar con paño seco · Aplicar acondicionador de cuero cada 3 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este cinturón de cuero auténtico es el accesorio indispensable para completar cualquier atuendo. La hebilla minimalista en acero inoxidable pulido aporta un toque de sofisticación discreta.' },
-        5: {  nombre: 'Gafas de Sol Doradas', categoria: 'Accesorios', ref: 'VC-AC-002', precio: '175', icono: '&#x1F453;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Montura de acetato italiano · Lentes polarizadas Carl Zeiss · Bisagras de titanio', uso: 'Uso diario, viajes, eventos al aire libre, protección solar', cuidados: 'Limpiar con paño de microfibra · Guardar en estuche rígido · Evitar temperaturas extremas', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Estas gafas de sol doradas combinan estilo y protección. La montura de acetato italiano y las lentes polarizadas Carl Zeiss ofrecen una visión nítida y una protección UV400 completa.' },
-        6: {  nombre: 'Botín Chelsea Negro', categoria: 'Calzado', ref: 'VC-OX-002', precio: '320', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '40', badge: '', materiales: 'Cuero barnizado · Elásticos laterales · Suela de crepe', uso: 'Oficina, salidas casuales elegantes, citas, eventos nocturnos', cuidados: 'Limpiar con paño húmedo · Usar betún para cuero barnizado · Evitar agua en exceso', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El botín Chelsea negro es un ícono de la moda masculina. Su diseño minimalista con elásticos laterales y tiro trasero lo hace tan práctico como elegante.' },
-        7: {  nombre: 'Camisa Oxford Azul', categoria: 'Camisas', ref: 'VC-CM-001', precio: '159', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Algodón Oxford 100% · Botones de pasta · Cuello abotonable', uso: 'Oficina casual, looks preppy, fines de semana, reuniones informales', cuidados: 'Lavar a máx. 40°C · Planchar a temperatura media · No usar blanqueador', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa Oxford azul es un clásico atemporal del armario masculino. Su tejido de algodón Oxford de alta calidad ofrece durabilidad y un aspecto distintivo.' },
-        8: {  nombre: 'Pantalón Chino Beige', categoria: 'Pantalones', ref: 'VC-PT-002', precio: '185', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Algodón sarga 100% · Forro parcial · Cremallera YKK', uso: 'Oficina casual, fines de semana, viajes, reuniones informales', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón chino beige es la prenda versátil por excelencia. Su corte recto y su color neutro lo hacen combinable con casi cualquier prenda de tu armario.' },
-        9: {  nombre: 'Reloj de Pulsera Plateado', categoria: 'Accesorios', ref: 'VC-AC-003', precio: '450', icono: '&#x1F9E2;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Caja de acero inoxidable 316L · Cristal de zafiro · Pulsera de acero', uso: 'Uso diario, oficina, eventos formales, reuniones de negocios', cuidados: 'Evitar campos magnéticos · Limpiar con paño suave · Revisar junta cada 2 años', origen: 'Diseñado en París · Manufactura Suiza', descripcion: 'Este reloj de pulsera plateado combina la precisión suiza con el diseño parisino. Su esfera minimalista y su pulsera de acero inoxidable lo convierten en el complemento perfecto.' },
-        10: { nombre: 'Camisa de Seda Negra', categoria: 'Camisas', ref: 'VC-CM-002', precio: '275', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Seda natural 100% · Botones de madreperla · Costuras francesas', uso: 'Cenas formales, eventos de gala, citas especiales, fiestas elegantes', cuidados: 'Lavar en seco exclusivamente · No planchar directamente · Guardar en funda de tela', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa de seda negra es la pieza de declaración por excelencia. La seda natural de la más alta calidad ofrece un brillo sutil y una caída extraordinaria.' },
-        11: { nombre: 'Bolso Tote de Cuero', categoria: 'Accesorios', ref: 'VC-AC-004', precio: '390', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Cuero granulado 100% · Forro de algodón · Cremallera metálica dorada', uso: 'Uso diario, oficina, viajes, compras', cuidados: 'Limpiar con paño húmedo · Aplicar crema hidratante cada 2 meses · Guardar con relleno', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este bolso tote de cuero es el compañero perfecto para el día a día. Su amplio interior y su diseño minimalista lo hacen tan funcional como elegante.' },
-        12: { nombre: 'Mocasín de Cuero Marrón', categoria: 'Calzado', ref: 'VC-OX-003', precio: '210', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '39', badge: '', materiales: 'Cuero nobuk · Suela de goma · Forro de piel de cerdo', uso: 'Oficina casual, fines de semana, viajes, looks preppy', cuidados: 'Cepillar regularmente · Aplicar protector de nobuk · Evitar mojar', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El mocasín de cuero marrón es el calzado perfecto para quienes buscan comodidad sin sacrificar el estilo. Su diseño clásico se adapta tanto a la oficina como al tiempo libre.' },
-        13: { nombre: 'Camisa Denim Clásica', categoria: 'Camisas', ref: 'VC-CM-003', precio: '169', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Denim de algodón 100% · Botones metálicos · Costuras de doble pespunte', uso: 'Looks casuales, fines de semana, conciertos, salidas informales', cuidados: 'Lavar del revés a máx. 30°C · No usar secadora · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa denim clásica es un básico del armario moderno. Su tejido de denim de alta calidad ofrece durabilidad y un estilo desenfadado pero cuidado.' },
-        14: { nombre: 'Pantalón de Algodón Beige', categoria: 'Pantalones', ref: 'VC-PT-003', precio: '175', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Algodón orgánico 100% · Elástico en cintura · Costuras planas', uso: 'Uso diario, oficina casual, fines de semana, viajes', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar blanqueador', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de algodón beige combina la comodidad del algodón orgánico con un diseño moderno y funcional. Perfecto para el día a día.' },
-        15: { nombre: 'Pulsera de Cuero Trenzada', categoria: 'Accesorios', ref: 'VC-AC-005', precio: '85', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Cuero trenzado · Cierre magnético · Remaches de acero', uso: 'Uso diario, looks casuales, capas con otros accesorios', cuidados: 'Evitar el contacto con agua · Limpiar con paño seco · Guardar en bolsa de tela', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta pulsera de cuero trenzada es el accesorio perfecto para añadir un toque de personalidad a cualquier look. Su diseño artesanal la hace única.' },
-        16: { nombre: 'Zapato Derby Marrón', categoria: 'Calzado', ref: 'VC-OX-004', precio: '265', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '41', badge: '', materiales: 'Cuero pulido · Suela de cuero · Forro de becerro', uso: 'Oficina, bodas de día, eventos semi-formales, reuniones', cuidados: 'Limpiar con betún marrón · Usar hormas · Evitar mojar', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'El zapato Derby marrón es una alternativa elegante al Oxford clásico. Su sistema de cordones abierto ofrece un ajuste más cómodo sin sacrificar la sofisticación.' },
-        17: { nombre: 'Camisa Blanca de Vestir', categoria: 'Camisas', ref: 'VC-CM-004', precio: '149', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Algodón egipcio 100% · Botones de nácar · Cuello italiano', uso: 'Oficina, entrevistas, eventos formales, bodas', cuidados: 'Lavar a máx. 40°C · Planchar a alta temperatura · Almidonar opcional', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa blanca de vestir es el pilar de cualquier armario elegante. Confeccionada en algodón egipcio de fibra larga, ofrece una suavidad y durabilidad inigualables.' },
-        18: { nombre: 'Pantalón Slim Fit Negro', categoria: 'Pantalones', ref: 'VC-PT-004', precio: '195', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Algodón elástico 98% · Elastano 2% · Cremallera YKK', uso: 'Oficina, salidas nocturnas, citas, looks modernos', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón slim fit negro es la prenda perfecta para un look moderno y sofisticado. Su tejido con elastano ofrece comodidad y libertad de movimiento.' },
-        19: { nombre: 'Bufanda de Cachemira', categoria: 'Accesorios', ref: 'VC-AC-006', precio: '125', icono: '&#x1F9F6;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Cachemira 100% · Flecos artesanales · Tejido de punto', uso: 'Invierno, viajes, oficina, eventos al aire libre', cuidados: 'Lavar a mano en agua fría · Secar en horizontal · No retorcer', origen: 'Diseñado en París · Confeccionado en Escocia', descripcion: 'Esta bufanda de cachemira es el epítome del lujo y la calidez. La cachemira de la más alta calidad ofrece una suavidad incomparable y un aislamiento térmico excepcional.' },
-        20: { nombre: 'Botín de Cuero Marrón', categoria: 'Calzado', ref: 'VC-OX-005', precio: '340', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '43', badge: '', materiales: 'Cuero vegetal · Suela Vibram · Forro de piel', uso: 'Invierno, oficina, looks casuales elegantes, fines de semana', cuidados: 'Limpiar con crema nutritiva · Cepillar regularmente · Aplicar impermeabilizante', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'Este botín de cuero marrón combina la robustez del calzado de invierno con la elegancia del diseño parisino. La suela Vibram garantiza tracción y durabilidad.' },
-        21: { nombre: 'Zapato Oxford Premium', categoria: 'Calzado', ref: 'VC-OX-001', precio: '295', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '42', badge: 'Nuevo', materiales: 'Cuero italiano 100% · Suela de caucho natural · Costuras Goodyear', uso: 'Oficina ejecutiva, bodas formales, eventos de gala, reuniones de negocio', cuidados: 'Limpiar con paño húmedo · Usar crema hidratante para cuero · Evitar exposición prolongada al sol', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Este zapato Oxford Premium es la máxima expresión de la elegancia clásica. Fabricado en cuero italiano de primera calidad, cada par es ensamblado a mano por artesanos expertos con la tradicional técnica Goodyear, garantizando durabilidad y confort excepcionales.' },
-        22: { nombre: 'Camisa de Lino Blanca', categoria: 'Camisas', ref: 'VC-LN-001', precio: '189', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Lino 100% natural · Botones de nácar · Costuras reforzadas', uso: 'Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio', cuidados: 'Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta camisa de lino blanco es la pieza esencial que toda persona elegante necesita en su armario. Confeccionada en lino 100% natural de la región de Bretaña, Francia, ofrece una frescura incomparable y una caída impecable.' },
-        23: { nombre: 'Pantalón de Vestir Gris', categoria: 'Pantalones', ref: 'VC-PT-001', precio: '245', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: 'Nuevo', materiales: 'Lana virgen 100% · Forro de viscosa · Cremallera YKK', uso: 'Oficina ejecutiva, reuniones formales, cenas de negocios, entrevistas', cuidados: 'Lavar en seco · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de vestir gris perla combina la tradición sartorial francesa con un corte moderno. La lana virgen de primera calidad garantiza un drapeado perfecto y una durabilidad excepcional.' },
-        24: { nombre: 'Cinturón de Cuero', categoria: 'Accesorios', ref: 'VC-AC-001', precio: '135', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: 'Nuevo', materiales: 'Cuero vacuno 100% · Hebilla de acero inoxidable · Costuras a mano', uso: 'Uso diario, oficina, eventos casuales y formales', cuidados: 'Limpiar con paño seco · Aplicar acondicionador de cuero cada 3 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este cinturón de cuero auténtico es el accesorio indispensable para completar cualquier atuendo. La hebilla minimalista en acero inoxidable pulido aporta un toque de sofisticación discreta.' },
-        25: { nombre: 'Gafas de Sol Doradas', categoria: 'Accesorios', ref: 'VC-AC-002', precio: '175', icono: '&#x1F453;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Montura de acetato italiano · Lentes polarizadas Carl Zeiss · Bisagras de titanio', uso: 'Uso diario, viajes, eventos al aire libre, protección solar', cuidados: 'Limpiar con paño de microfibra · Guardar en estuche rígido · Evitar temperaturas extremas', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Estas gafas de sol doradas combinan estilo y protección. La montura de acetato italiano y las lentes polarizadas Carl Zeiss ofrecen una visión nítida y una protección UV400 completa.' },
-        26: { nombre: 'Botín Chelsea Negro', categoria: 'Calzado', ref: 'VC-OX-002', precio: '320', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '40', badge: '', materiales: 'Cuero barnizado · Elásticos laterales · Suela de crepe', uso: 'Oficina, salidas casuales elegantes, citas, eventos nocturnos', cuidados: 'Limpiar con paño húmedo · Usar betún para cuero barnizado · Evitar agua en exceso', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El botín Chelsea negro es un ícono de la moda masculina. Su diseño minimalista con elásticos laterales y tiro trasero lo hace tan práctico como elegante.' },
-        27: { nombre: 'Camisa Oxford Azul', categoria: 'Camisas', ref: 'VC-CM-001', precio: '159', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Algodón Oxford 100% · Botones de pasta · Cuello abotonable', uso: 'Oficina casual, looks preppy, fines de semana, reuniones informales', cuidados: 'Lavar a máx. 40°C · Planchar a temperatura media · No usar blanqueador', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa Oxford azul es un clásico atemporal del armario masculino. Su tejido de algodón Oxford de alta calidad ofrece durabilidad y un aspecto distintivo.' },
-        28: { nombre: 'Pantalón Chino Beige', categoria: 'Pantalones', ref: 'VC-PT-002', precio: '185', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Algodón sarga 100% · Forro parcial · Cremallera YKK', uso: 'Oficina casual, fines de semana, viajes, reuniones informales', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón chino beige es la prenda versátil por excelencia. Su corte recto y su color neutro lo hacen combinable con casi cualquier prenda de tu armario.' },
-        29: { nombre: 'Reloj de Pulsera Plateado', categoria: 'Accesorios', ref: 'VC-AC-003', precio: '450', icono: '&#x1F9E2;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Caja de acero inoxidable 316L · Cristal de zafiro · Pulsera de acero', uso: 'Uso diario, oficina, eventos formales, reuniones de negocios', cuidados: 'Evitar campos magnéticos · Limpiar con paño suave · Revisar junta cada 2 años', origen: 'Diseñado en París · Manufactura Suiza', descripcion: 'Este reloj de pulsera plateado combina la precisión suiza con el diseño parisino. Su esfera minimalista y su pulsera de acero inoxidable lo convierten en el complemento perfecto.' },
-        30: { nombre: 'Camisa de Seda Negra', categoria: 'Camisas', ref: 'VC-CM-002', precio: '275', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Seda natural 100% · Botones de madreperla · Costuras francesas', uso: 'Cenas formales, eventos de gala, citas especiales, fiestas elegantes', cuidados: 'Lavar en seco exclusivamente · No planchar directamente · Guardar en funda de tela', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa de seda negra es la pieza de declaración por excelencia. La seda natural de la más alta calidad ofrece un brillo sutil y una caída extraordinaria.' },
-        31: { nombre: 'Bolso Tote de Cuero', categoria: 'Accesorios', ref: 'VC-AC-004', precio: '390', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Cuero granulado 100% · Forro de algodón · Cremallera metálica dorada', uso: 'Uso diario, oficina, viajes, compras', cuidados: 'Limpiar con paño húmedo · Aplicar crema hidratante cada 2 meses · Guardar con relleno', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este bolso tote de cuero es el compañero perfecto para el día a día. Su amplio interior y su diseño minimalista lo hacen tan funcional como elegante.' }
-      };
+      // ---------- PRODUCT DATABASE (optimizado) ----------
+      function plantillaProducto(categoria, nombre, precio, icono, id) {
+        var esCalzado = categoria === 'Calzado';
+        return {
+          nombre: nombre,
+          categoria: categoria,
+          ref: 'VC-' + String(id).padStart(3, '0'),
+          precio: precio,
+          icono: icono,
+          tallas: esCalzado ? ['38', '39', '40', '41', '42', '43'] : ['S', 'M', 'L', 'XL'],
+          tallaDefault: esCalzado ? '42' : 'M',
+          badge: '',
+          materiales: esCalzado
+            ? 'Cuero premium · Suela reforzada · Acabado artesanal'
+            : 'Fibras premium · Costuras reforzadas · Acabado de lujo',
+          uso: 'Uso diario, eventos y ocasiones especiales.',
+          cuidados: 'Lavar o limpiar según etiqueta del producto.',
+          origen: 'Diseñado en París · Confeccionado en Europa',
+          descripcion: nombre + ' de VivaChavez, con diseño elegante y materiales de alta calidad.'
+        };
+      }
+
+      function getProductFromCard(id) {
+        var card = document.querySelector('.product-card[data-product-id="' + id + '"]');
+        if (!card) return null;
+
+        var nombreEl = card.querySelector('.product-card__name');
+        var categoriaEl = card.querySelector('.product-card__category');
+        var precioEl = card.querySelector('.product-card__price-current');
+        var iconoEl = card.querySelector('.product-card__image-icon');
+        var badgeEl = card.querySelector('.product-card__badge');
+
+        var nombre = nombreEl ? nombreEl.textContent.trim() : 'Producto VivaChavez';
+        var categoria = categoriaEl ? categoriaEl.textContent.trim() : 'Accesorios';
+        var precio = precioEl ? (precioEl.getAttribute('content') || precioEl.textContent.replace(/[^\d]/g, '')) : '0';
+        var icono = iconoEl ? iconoEl.innerHTML : '&#x1F457;';
+
+        var prod = plantillaProducto(categoria, nombre, precio, icono, id);
+        if (badgeEl && badgeEl.textContent.trim()) {
+          prod.badge = badgeEl.textContent.trim();
+        }
+        return prod;
+      }
 
       // ---------- Product View: Cargar producto dinámicamente ----------
       function cargarProducto(id) {
-        const prod = productosDB[id];
+        const prod = getProductFromCard(id);
         if (!prod) return;
 
         const section = document.getElementById('productViewSection');
@@ -1780,28 +1928,29 @@
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
-      // ---------- Click en tarjetas de producto → Vista previa ----------
+      // ---------- Click en tarjetas de producto (delegación para menor carga) ----------
       document.querySelectorAll('.product-card').forEach(function(card) {
-        card.addEventListener('click', function(e) {
-          // No disparar si se hizo clic en el botón de wishlist
-          if (e.target.closest('.product-card__wishlist')) return;
-          const id = this.getAttribute('data-product-id');
-          if (id) cargarProducto(id);
-        });
-        // Cursor pointer para indicar que es clickeable
         card.style.cursor = 'pointer';
       });
-      document.querySelectorAll('.product-card__wishlist').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
+
+      document.addEventListener('click', function(e) {
+        var wishlistBtn = e.target.closest('.product-card__wishlist');
+        if (wishlistBtn) {
           e.stopPropagation();
-          if (this.innerHTML === '&#x2661;') {
-            this.innerHTML = '&#x2764;';
-            this.style.color = '#e74c3c';
+          if (wishlistBtn.innerHTML === '&#x2661;') {
+            wishlistBtn.innerHTML = '&#x2764;';
+            wishlistBtn.style.color = '#e74c3c';
           } else {
-            this.innerHTML = '&#x2661;';
-            this.style.color = '';
+            wishlistBtn.innerHTML = '&#x2661;';
+            wishlistBtn.style.color = '';
           }
-        });
+          return;
+        }
+
+        var card = e.target.closest('.product-card');
+        if (!card) return;
+        var id = card.getAttribute('data-product-id');
+        if (id) cargarProducto(id);
       });
 
       // ============================================
@@ -1814,7 +1963,11 @@
         { id: 1,  nombre: 'Zapato Oxford Premium',    ref: 'VC-OX-001', precio: 295, icono: '&#x1F460;', talla: '42', color: 'Negro',   cantidad: 1 },
         { id: 9,  nombre: 'Reloj de Pulsera Plateado', ref: 'VC-AC-003', precio: 450, icono: '&#x1F9E2;', talla: 'Única', color: 'Plateado', cantidad: 1 }
       ];
-      var couponAplicado = false; // true si se aplicó cupón VIVA10
+      var couponDescuento = 0; // porcentaje aplicado al total
+      var cuponesValidos = {
+        'VIVACHAVEZ2026': 0.10,
+        'ALAMODACONCHAVEZ': 0.20
+      };
 
       // ---------- Renderizar dropdown del carrito ----------
       function renderizarDropdownCarrito() {
@@ -1959,16 +2112,12 @@
           shippingEl.className = 'cart__summary-value' + (subtotal >= 150 ? ' cart__summary-value--free' : '');
         }
         if (discountEl) {
-          if (couponAplicado) {
-            var descuento = subtotal * 0.10;
+          if (couponDescuento > 0) {
+            var descuento = total * couponDescuento;
+            var totalConDescuento = total - descuento;
             discountEl.textContent = '-' + descuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
             discountEl.style.color = '#27ae60';
-            // Recalcular IVA y total con descuento
-            var newSubtotal = subtotal - descuento;
-            var newIva = newSubtotal * 0.21;
-            var newTotal = newSubtotal + newIva;
-            if (taxEl) taxEl.textContent = newIva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
-            if (totalEl) totalEl.textContent = newTotal.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            if (totalEl) totalEl.textContent = totalConDescuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
           } else {
             discountEl.textContent = '0€';
             discountEl.style.color = '';
@@ -2138,50 +2287,89 @@
       // ---------- Cupón de descuento ----------
       var couponBtn = document.getElementById('applyCouponBtn');
       var couponMsg = document.getElementById('couponMsg');
+      var couponInput = document.getElementById('couponCode');
+
+      function evaluarCupon(code) {
+        if (!couponMsg) return;
+
+        if (!code) {
+          couponMsg.textContent = '';
+          couponMsg.classList.remove('cart__summary-coupon-msg--valid', 'cart__summary-coupon-msg--invalid');
+          return;
+        }
+
+        if (cuponesValidos[code]) {
+          couponMsg.textContent = '✅ Cupón válido. Puedes aplicarlo.';
+          couponMsg.classList.add('cart__summary-coupon-msg--valid');
+          couponMsg.classList.remove('cart__summary-coupon-msg--invalid');
+          return;
+        }
+
+        if (code.length > 6) {
+          couponMsg.textContent = '❌ Cupón no válido.';
+          couponMsg.classList.add('cart__summary-coupon-msg--invalid');
+          couponMsg.classList.remove('cart__summary-coupon-msg--valid');
+          return;
+        }
+
+        couponMsg.textContent = '';
+        couponMsg.classList.remove('cart__summary-coupon-msg--valid', 'cart__summary-coupon-msg--invalid');
+      }
+
+      if (couponInput) {
+        couponInput.addEventListener('input', function() {
+          var value = this.value.trim().toUpperCase();
+          evaluarCupon(value);
+        });
+      }
+
       if (couponBtn) {
         couponBtn.addEventListener('click', function() {
-          var input = document.getElementById('couponCode');
+          var input = couponInput;
           if (!input || !input.value.trim()) return;
 
           var code = input.value.trim().toUpperCase();
+          input.value = code;
           var discountEl = document.getElementById('cartDiscount');
           var subtotalEl = document.getElementById('cartSubtotal');
 
           if (!discountEl || !subtotalEl) return;
 
-          if (code === 'VIVA10') {
+          if (cuponesValidos[code]) {
             // Calcular subtotal desde cartData
             var sub = 0;
             for (var i = 0; i < cartData.length; i++) {
               sub += cartData[i].precio * cartData[i].cantidad;
             }
-            var descuento = sub * 0.10;
-            couponAplicado = true;
+            var baseTotal = sub * 1.21;
+            var descuento = baseTotal * cuponesValidos[code];
+            couponDescuento = cuponesValidos[code];
             discountEl.textContent = '-' + descuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
             discountEl.style.color = '#27ae60';
-            this.textContent = '&#x2713; Aplicado';
+            this.textContent = '✓ Aplicado';
             this.style.background = '#27ae60';
             this.disabled = true;
             input.disabled = true;
             if (couponMsg) {
-              couponMsg.textContent = '&#x1F389; &iexcl;Cup&oacute;n aplicado! 10% de descuento.';
-              couponMsg.style.color = '#27ae60';
+              couponMsg.textContent = '🎉 ¡Cupón aplicado! Descuento activado.';
+              couponMsg.classList.add('cart__summary-coupon-msg--valid');
+              couponMsg.classList.remove('cart__summary-coupon-msg--invalid');
             }
 
-            var newSubtotal = sub - descuento;
-            var iva = newSubtotal * 0.21;
-            var total = newSubtotal + iva;
+            var iva = sub * 0.21;
+            var total = baseTotal - descuento;
             var taxEl = document.getElementById('cartTax');
             var totalEl = document.getElementById('cartTotal');
             if (taxEl) taxEl.textContent = iva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
             if (totalEl) totalEl.textContent = total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
             updateCheckoutSummary();
           } else {
-            this.textContent = 'C&oacute;digo inv&aacute;lido';
+            this.textContent = 'Código inválido';
             this.style.background = '#e74c3c';
             if (couponMsg) {
-              couponMsg.textContent = '&#x274C; C&oacute;digo inv&aacute;lido. Intenta con VIVA10.';
-              couponMsg.style.color = '#e74c3c';
+              couponMsg.textContent = '❌ Código inválido. Prueba con VIVACHAVEZ2026 o ALAMODACONCHAVEZ.';
+              couponMsg.classList.add('cart__summary-coupon-msg--invalid');
+              couponMsg.classList.remove('cart__summary-coupon-msg--valid');
             }
             var self = this;
             setTimeout(function() {
@@ -2193,6 +2381,7 @@
       }
 
       // ---------- Checkout en 3 pasos ----------
+      var checkoutBootstrapped = false;
       var checkoutForm = document.getElementById('checkoutForm');
       var checkoutFeedback = document.getElementById('checkoutFeedback');
       var checkoutSteps = document.querySelectorAll('[data-step-indicator]');
@@ -2319,14 +2508,18 @@
         return isValid;
       }
 
-      if (checkoutCardNumber) {
+      function bootstrapCheckout() {
+        if (checkoutBootstrapped) return;
+        checkoutBootstrapped = true;
+
+        if (checkoutCardNumber) {
         checkoutCardNumber.addEventListener('input', function() {
           var digits = this.value.replace(/\D/g, '').slice(0, 16);
           this.value = digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
         });
-      }
+        }
 
-      if (checkoutCardExpiry) {
+        if (checkoutCardExpiry) {
         checkoutCardExpiry.addEventListener('input', function() {
           var digits = this.value.replace(/\D/g, '').slice(0, 4);
           if (digits.length >= 3) {
@@ -2335,30 +2528,30 @@
             this.value = digits;
           }
         });
-      }
+        }
 
-      if (checkoutCardCvv) {
+        if (checkoutCardCvv) {
         checkoutCardCvv.addEventListener('input', function() {
           this.value = this.value.replace(/\D/g, '').slice(0, 4);
         });
-      }
+        }
 
-      checkoutNextBtns.forEach(function(btn) {
+        checkoutNextBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           if (!validateStep(checkoutCurrentStep)) return;
           var next = parseInt(this.getAttribute('data-next-step'), 10);
           showCheckoutStep(next);
         });
-      });
+        });
 
-      checkoutPrevBtns.forEach(function(btn) {
+        checkoutPrevBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
           var prev = parseInt(this.getAttribute('data-prev-step'), 10);
           showCheckoutStep(prev);
         });
-      });
+        });
 
-      if (checkoutForm) {
+        if (checkoutForm) {
         checkoutForm.addEventListener('submit', function(e) {
           e.preventDefault();
           if (!validateStep(3)) return;
@@ -2399,26 +2592,30 @@
             }, 2800);
           }, 1200);
         });
-      }
-
-      if (checkoutPopupClose) {
-        checkoutPopupClose.addEventListener('click', closeCheckoutPopup);
-      }
-
-      if (checkoutPopupBackdrop) {
-        checkoutPopupBackdrop.addEventListener('click', closeCheckoutPopup);
-      }
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && checkoutPopup && checkoutPopup.classList.contains('is-visible')) {
-          closeCheckoutPopup();
         }
-      });
+
+        if (checkoutPopupClose) {
+        checkoutPopupClose.addEventListener('click', closeCheckoutPopup);
+        }
+
+        if (checkoutPopupBackdrop) {
+        checkoutPopupBackdrop.addEventListener('click', closeCheckoutPopup);
+        }
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && checkoutPopup && checkoutPopup.classList.contains('is-visible')) {
+            closeCheckoutPopup();
+          }
+        });
+
+        showCheckoutStep(1);
+      }
 
       // ---------- Cerrar dropdown al hacer clic en "Proceder al pago" ----------
       var checkoutLink = document.getElementById('cartDropdownCheckout');
       if (checkoutLink) {
         checkoutLink.addEventListener('click', function(e) {
+          bootstrapCheckout();
           cerrarDropdownCarrito();
           var checkoutSection = document.getElementById('checkoutSection');
           if (checkoutSection) {
@@ -2429,8 +2626,16 @@
       }
 
       // ---------- Inicializar ----------
-      syncAll();
-      showCheckoutStep(1);
+      function initHeavyUI() {
+        bootstrapCheckout();
+        syncAll();
+      }
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(initHeavyUI, { timeout: 1200 });
+      } else {
+        setTimeout(initHeavyUI, 250);
+      }
 
     })();
   </script>

@@ -2,6 +2,8 @@ try:
     # try to import flask, or return error if has not been installed
     from flask import Flask
     from flask import send_from_directory
+    from flask import Response
+    from flask import request
 except ImportError:
     print("You don't have Flask installed, run `$ pip3 install flask` and try again")
     exit(1)
@@ -11,6 +13,48 @@ import os, subprocess
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), './')
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 #disable cache
+
+@app.after_request
+def add_headers(response):
+    # Help crawlers and improve baseline security headers.
+    response.headers['X-Robots-Tag'] = 'index, follow'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Cross-Origin-Opener-Policy'] = 'same-origin-allow-popups'
+    response.headers['Content-Security-Policy'] = (
+        "default-src 'self'; "
+        "img-src 'self' data: https:; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src 'self' data: https://fonts.gstatic.com; "
+        "script-src 'self' 'unsafe-inline'; "
+        "connect-src 'self'; "
+        "frame-ancestors 'self'; "
+        "object-src 'none'; "
+        "base-uri 'self'"
+    )
+    return response
+
+@app.route('/robots.txt', methods=['GET'])
+def robots_txt():
+    host = request.host_url.rstrip('/')
+    body = "User-agent: *\nAllow: /\n\nSitemap: " + host + "/sitemap.xml\n"
+    return Response(body, mimetype='text/plain')
+
+@app.route('/sitemap.xml', methods=['GET'])
+def sitemap_xml():
+    host = request.host_url.rstrip('/')
+    body = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        '  <url>\n'
+        '    <loc>' + host + '/</loc>\n'
+        '    <changefreq>weekly</changefreq>\n'
+        '    <priority>1.0</priority>\n'
+        '  </url>\n'
+        '</urlset>\n'
+    )
+    return Response(body, mimetype='application/xml')
 
 # Serving the index file
 @app.route('/', methods=['GET'])
