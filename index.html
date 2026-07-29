@@ -155,6 +155,174 @@
     </section>
 
     <!-- ============================================
+         VISTA DE PRODUCTO — Diseño en dos columnas
+         ============================================ -->
+    <section class="product-view section" id="productViewSection" aria-label="Vista detallada del producto" itemscope itemtype="https://schema.org/Product">
+      <div class="container">
+        <div class="product-view__layout">
+
+          <!-- Columna Izquierda — Foto del producto -->
+          <div class="product-view__gallery">
+            <div class="product-view__main-image">
+              <div class="product-view__image-placeholder">
+                <span class="product-view__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa de Lino Blanca</span>
+              </div>
+              <span class="product-view__badge product-view__badge--new">Nuevo</span>
+            </div>
+            <div class="product-view__thumbs" role="list" aria-label="Miniaturas del producto">
+              <button class="product-view__thumb product-view__thumb--active" role="listitem" aria-label="Vista frontal">
+                <span aria-hidden="true">&#x1F455;</span>
+              </button>
+              <button class="product-view__thumb" role="listitem" aria-label="Vista lateral">
+                <span aria-hidden="true">&#x1F9FA;</span>
+              </button>
+              <button class="product-view__thumb" role="listitem" aria-label="Vista detalle">
+                <span aria-hidden="true">&#x1F50D;</span>
+              </button>
+              <button class="product-view__thumb" role="listitem" aria-label="Vista trasera">
+                <span aria-hidden="true">&#x1F456;</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Columna Derecha — Información principal -->
+          <div class="product-view__info">
+            <!-- Categoría / breadcrumb -->
+            <nav class="product-view__breadcrumb" aria-label="Miga de pan">
+              <a href="/">Inicio</a>
+              <span class="product-view__breadcrumb-sep" aria-hidden="true">/</span>
+              <a href="/coleccion">Colección</a>
+              <span class="product-view__breadcrumb-sep" aria-hidden="true">/</span>
+              <a href="/camisas">Camisas</a>
+              <span class="product-view__breadcrumb-sep" aria-hidden="true">/</span>
+              <span aria-current="page">Camisa de Lino Blanca</span>
+            </nav>
+
+            <!-- Nombre -->
+            <h1 class="product-view__name" itemprop="name">Camisa de Lino Blanca</h1>
+
+            <!-- Código / Referencia -->
+            <p class="product-view__ref">
+              <span class="product-view__ref-label">Referencia:</span>
+              <span itemprop="sku">VC-LN-001</span>
+            </p>
+
+            <!-- Talla -->
+            <div class="product-view__size">
+              <div class="product-view__size-header">
+                <span class="product-view__size-label">Talla:</span>
+                <button class="product-view__size-guide" aria-label="Guía de tallas">&#x1F4D0; Guía de tallas</button>
+              </div>
+              <div class="product-view__size-options" role="radiogroup" aria-label="Seleccionar talla">
+                <label class="product-view__size-btn">
+                  <input type="radio" name="talla" value="S" />
+                  <span>S</span>
+                </label>
+                <label class="product-view__size-btn">
+                  <input type="radio" name="talla" value="M" checked />
+                  <span>M</span>
+                </label>
+                <label class="product-view__size-btn">
+                  <input type="radio" name="talla" value="L" />
+                  <span>L</span>
+                </label>
+                <label class="product-view__size-btn">
+                  <input type="radio" name="talla" value="XL" />
+                  <span>XL</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Precio -->
+            <div class="product-view__price">
+              <span class="product-view__price-current" itemprop="price" content="189">189&euro;</span>
+              <span class="product-view__price-tax">IVA incluido</span>
+            </div>
+
+            <!-- Selector de cantidad + Botón Agregar al carrito -->
+            <div class="product-view__actions">
+              <div class="product-view__qty">
+                <label for="qty-product" class="sr-only">Cantidad</label>
+                <button class="product-view__qty-btn" id="qtyDec" aria-label="Reducir cantidad">−</button>
+                <input
+                  type="number"
+                  id="qty-product"
+                  class="product-view__qty-input"
+                  value="1"
+                  min="1"
+                  max="99"
+                  aria-live="polite"
+                />
+                <button class="product-view__qty-btn" id="qtyInc" aria-label="Aumentar cantidad">+</button>
+              </div>
+              <button class="btn btn--primary product-view__cart-btn" aria-label="Agregar al carrito">
+                &#x1F6CD; Agregar al carrito
+              </button>
+            </div>
+
+            <!-- Botones secundarios -->
+            <div class="product-view__extras">
+              <button class="product-view__extras-btn" aria-label="Añadir a favoritos">
+                &#x2661; Añadir a favoritos
+              </button>
+              <button class="product-view__extras-btn" aria-label="Compartir producto">
+                &#x1F517; Compartir
+              </button>
+            </div>
+
+            <!-- Métodos de pago y envío -->
+            <div class="product-view__shipping">
+              <div class="product-view__shipping-item">
+                <span aria-hidden="true">&#x1F6CD;</span>
+                <span>Envío gratis a partir de 150&euro;</span>
+              </div>
+              <div class="product-view__shipping-item">
+                <span aria-hidden="true">&#x1F504;</span>
+                <span>Devoluciones gratis hasta 30 días</span>
+              </div>
+              <div class="product-view__shipping-item">
+                <span aria-hidden="true">&#x1F4B3;</span>
+                <span>Pago seguro (Visa, MC, Amex, PayPal)</span>
+              </div>
+            </div>
+
+            <!-- Descripción detallada -->
+            <div class="product-view__description">
+              <h2 class="product-view__description-title">Descripción del producto</h2>
+              <p class="product-view__description-text" itemprop="description">
+                Esta camisa de lino blanco es la pieza esencial que toda persona
+                elegante necesita en su armario. Confeccionada en lino 100% natural
+                de la región de Bretaña, Francia, ofrece una frescura incomparable
+                y una caída impecable.
+              </p>
+
+              <div class="product-view__details-grid">
+                <div class="product-view__detail-item">
+                  <span class="product-view__detail-label">Materiales</span>
+                  <span class="product-view__detail-value">Lino 100% natural · Botones de nácar · Costuras reforzadas</span>
+                </div>
+                <div class="product-view__detail-item">
+                  <span class="product-view__detail-label">Uso recomendado</span>
+                  <span class="product-view__detail-value">Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio</span>
+                </div>
+                <div class="product-view__detail-item">
+                  <span class="product-view__detail-label">Cuidados</span>
+                  <span class="product-view__detail-value">Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media</span>
+                </div>
+                <div class="product-view__detail-item">
+                  <span class="product-view__detail-label">Origen</span>
+                  <span class="product-view__detail-value">Diseñado en París · Confeccionado en Francia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
          FEATURES / TRUST BADGES
          ============================================ -->
     <section class="features animate-on-scroll" aria-label="Ventajas de la tienda">
@@ -200,7 +368,7 @@
         </header>
         <div class="products-carousel" role="list" aria-label="Lista de productos nuevos">
           <!-- Product Card 1 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="21">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -219,7 +387,7 @@
           </article>
 
           <!-- Product Card 2 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="22">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -238,7 +406,7 @@
           </article>
 
           <!-- Product Card 3 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="23">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
@@ -257,7 +425,7 @@
           </article>
 
           <!-- Product Card 4 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="24">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
@@ -276,7 +444,7 @@
           </article>
 
           <!-- Product Card 5 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="25">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F453;</span>
@@ -313,7 +481,7 @@
         </header>
         <div class="products-carousel" role="list" aria-label="Lista de productos más vendidos">
           <!-- Product Card 1 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="26">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -333,7 +501,7 @@
           </article>
 
           <!-- Product Card 2 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="27">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -352,7 +520,7 @@
           </article>
 
           <!-- Product Card 3 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="28">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
@@ -372,7 +540,7 @@
           </article>
 
           <!-- Product Card 4 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="29">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F9E2;</span>
@@ -391,7 +559,7 @@
           </article>
 
           <!-- Product Card 5 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="30">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -411,7 +579,7 @@
           </article>
 
           <!-- Product Card 6 -->
-          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product">
+          <article class="product-card" role="listitem" itemscope itemtype="https://schema.org/Product" data-product-id="31">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
@@ -485,7 +653,7 @@
         <div class="catalogo__grid" id="catalogoGrid" role="list" aria-label="Lista de productos del catálogo">
 
           <!-- Producto 1 -->
-          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="42">
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="42" data-product-id="1">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -504,7 +672,7 @@
           </article>
 
           <!-- Producto 2 -->
-          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="M">
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="M" data-product-id="2">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -523,7 +691,7 @@
           </article>
 
           <!-- Producto 3 -->
-          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="L">
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="L" data-product-id="3">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
@@ -542,7 +710,7 @@
           </article>
 
           <!-- Producto 4 -->
-          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="S">
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="S" data-product-id="4">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
@@ -561,7 +729,7 @@
           </article>
 
           <!-- Producto 5 -->
-          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="M">
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="M" data-product-id="5">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F453;</span>
@@ -580,7 +748,7 @@
           </article>
 
           <!-- Producto 6 -->
-          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="40">
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="40" data-product-id="6">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -600,7 +768,7 @@
           </article>
 
           <!-- Producto 7 -->
-          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="L">
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="L" data-product-id="7">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -619,7 +787,7 @@
           </article>
 
           <!-- Producto 8 -->
-          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="XL">
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="XL" data-product-id="8">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
@@ -639,7 +807,7 @@
           </article>
 
           <!-- Producto 9 -->
-          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="M">
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="M" data-product-id="9">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F9E2;</span>
@@ -658,7 +826,7 @@
           </article>
 
           <!-- Producto 10 -->
-          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="S">
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="S" data-product-id="10">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -678,7 +846,7 @@
           </article>
 
           <!-- Producto 11 -->
-          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="L">
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="L" data-product-id="11">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
@@ -697,7 +865,7 @@
           </article>
 
           <!-- Producto 12 -->
-          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="39">
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="39" data-product-id="12">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -716,7 +884,7 @@
           </article>
 
           <!-- Producto 13 -->
-          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="XL">
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="XL" data-product-id="13">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -735,7 +903,7 @@
           </article>
 
           <!-- Producto 14 -->
-          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="M">
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="M" data-product-id="14">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
@@ -754,7 +922,7 @@
           </article>
 
           <!-- Producto 15 -->
-          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="S">
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="S" data-product-id="15">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
@@ -773,7 +941,7 @@
           </article>
 
           <!-- Producto 16 -->
-          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="41">
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="41" data-product-id="16">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -792,7 +960,7 @@
           </article>
 
           <!-- Producto 17 -->
-          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="M">
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="M" data-product-id="17">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
@@ -811,7 +979,7 @@
           </article>
 
           <!-- Producto 18 -->
-          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="S">
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="S" data-product-id="18">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
@@ -830,7 +998,7 @@
           </article>
 
           <!-- Producto 19 -->
-          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="XL">
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="XL" data-product-id="19">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F9F6;</span>
@@ -849,7 +1017,7 @@
           </article>
 
           <!-- Producto 20 -->
-          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="43">
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="43" data-product-id="20">
             <div class="product-card__image">
               <div class="product-card__image-inner">
                 <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
@@ -1163,7 +1331,212 @@
         filtrarProductos();
       }
 
-      // ---------- Wishlist toggle ----------
+      // ---------- Product View: Quantity Selector ----------
+      const qtyInput = document.getElementById('qty-product');
+      const qtyDec = document.getElementById('qtyDec');
+      const qtyInc = document.getElementById('qtyInc');
+
+      if (qtyInput && qtyDec && qtyInc) {
+        qtyDec.addEventListener('click', function() {
+          const val = parseInt(qtyInput.value, 10);
+          if (val > 1) qtyInput.value = val - 1;
+        });
+
+        qtyInc.addEventListener('click', function() {
+          const val = parseInt(qtyInput.value, 10);
+          if (val < 99) qtyInput.value = val + 1;
+        });
+
+        qtyInput.addEventListener('change', function() {
+          let val = parseInt(this.value, 10);
+          if (isNaN(val) || val < 1) val = 1;
+          if (val > 99) val = 99;
+          this.value = val;
+        });
+      }
+
+      // ---------- Product View: Thumbs Gallery ----------
+      const thumbs = document.querySelectorAll('.product-view__thumb');
+      const mainImage = document.querySelector('.product-view__image-placeholder');
+
+      if (thumbs.length > 0 && mainImage) {
+        thumbs.forEach(function(thumb) {
+          thumb.addEventListener('click', function() {
+            thumbs.forEach(function(t) { t.classList.remove('product-view__thumb--active'); });
+            this.classList.add('product-view__thumb--active');
+            // Visual feedback: update the icon in the main image
+            const icon = this.querySelector('span').innerHTML;
+            const mainIcon = mainImage.querySelector('.product-view__image-icon');
+            if (mainIcon) {
+              mainIcon.innerHTML = icon;
+              mainIcon.style.display = 'inline-block';
+            }
+          });
+        });
+      }
+
+      // ---------- Product View: Add to Cart ----------
+      const cartBtn = document.querySelector('.product-view__cart-btn');
+      if (cartBtn) {
+        cartBtn.addEventListener('click', function() {
+          const qty = document.getElementById('qty-product').value;
+          const size = document.querySelector('input[name="talla"]:checked');
+          const sizeVal = size ? size.value : 'No seleccionada';
+          const originalText = this.innerHTML;
+
+          this.innerHTML = '&#x2713; Agregado (' + qty + ' × ' + sizeVal + ')';
+          this.style.background = '#27ae60';
+
+          // Animate the cart badge
+          const badge = document.querySelector('.navbar__btn-badge');
+          if (badge) {
+            const current = parseInt(badge.textContent, 10);
+            badge.textContent = current + parseInt(qty, 10);
+            badge.style.animation = 'none';
+            badge.offsetHeight; // reflow
+            badge.style.animation = 'pulse 0.3s ease';
+          }
+
+          setTimeout(function() {
+            cartBtn.innerHTML = originalText;
+            cartBtn.style.background = '';
+          }, 2500);
+        });
+      }
+
+      // ---------- PRODUCT DATABASE (31 productos) ----------
+      const productosDB = {
+        1: {  nombre: 'Zapato Oxford Premium', categoria: 'Calzado', ref: 'VC-OX-001', precio: '295', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '42', badge: '', materiales: 'Cuero italiano 100% · Suela de caucho natural · Costuras Goodyear', uso: 'Oficina ejecutiva, bodas formales, eventos de gala, reuniones de negocio', cuidados: 'Limpiar con paño húmedo · Usar crema hidratante para cuero · Evitar exposición prolongada al sol', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Este zapato Oxford Premium es la máxima expresión de la elegancia clásica. Fabricado en cuero italiano de primera calidad, cada par es ensamblado a mano por artesanos expertos con la tradicional técnica Goodyear, garantizando durabilidad y confort excepcionales.' },
+        2: {  nombre: 'Camisa de Lino Blanca', categoria: 'Camisas', ref: 'VC-LN-001', precio: '189', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Lino 100% natural · Botones de nácar · Costuras reforzadas', uso: 'Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio', cuidados: 'Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta camisa de lino blanco es la pieza esencial que toda persona elegante necesita en su armario. Confeccionada en lino 100% natural de la región de Bretaña, Francia, ofrece una frescura incomparable y una caída impecable.' },
+        3: {  nombre: 'Pantalón de Vestir Gris', categoria: 'Pantalones', ref: 'VC-PT-001', precio: '245', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Lana virgen 100% · Forro de viscosa · Cremallera YKK', uso: 'Oficina ejecutiva, reuniones formales, cenas de negocios, entrevistas', cuidados: 'Lavar en seco · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de vestir gris perla combina la tradición sartorial francesa con un corte moderno. La lana virgen de primera calidad garantiza un drapeado perfecto y una durabilidad excepcional.' },
+        4: {  nombre: 'Cinturón de Cuero', categoria: 'Accesorios', ref: 'VC-AC-001', precio: '135', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Cuero vacuno 100% · Hebilla de acero inoxidable · Costuras a mano', uso: 'Uso diario, oficina, eventos casuales y formales', cuidados: 'Limpiar con paño seco · Aplicar acondicionador de cuero cada 3 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este cinturón de cuero auténtico es el accesorio indispensable para completar cualquier atuendo. La hebilla minimalista en acero inoxidable pulido aporta un toque de sofisticación discreta.' },
+        5: {  nombre: 'Gafas de Sol Doradas', categoria: 'Accesorios', ref: 'VC-AC-002', precio: '175', icono: '&#x1F453;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Montura de acetato italiano · Lentes polarizadas Carl Zeiss · Bisagras de titanio', uso: 'Uso diario, viajes, eventos al aire libre, protección solar', cuidados: 'Limpiar con paño de microfibra · Guardar en estuche rígido · Evitar temperaturas extremas', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Estas gafas de sol doradas combinan estilo y protección. La montura de acetato italiano y las lentes polarizadas Carl Zeiss ofrecen una visión nítida y una protección UV400 completa.' },
+        6: {  nombre: 'Botín Chelsea Negro', categoria: 'Calzado', ref: 'VC-OX-002', precio: '320', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '40', badge: '', materiales: 'Cuero barnizado · Elásticos laterales · Suela de crepe', uso: 'Oficina, salidas casuales elegantes, citas, eventos nocturnos', cuidados: 'Limpiar con paño húmedo · Usar betún para cuero barnizado · Evitar agua en exceso', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El botín Chelsea negro es un ícono de la moda masculina. Su diseño minimalista con elásticos laterales y tiro trasero lo hace tan práctico como elegante.' },
+        7: {  nombre: 'Camisa Oxford Azul', categoria: 'Camisas', ref: 'VC-CM-001', precio: '159', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Algodón Oxford 100% · Botones de pasta · Cuello abotonable', uso: 'Oficina casual, looks preppy, fines de semana, reuniones informales', cuidados: 'Lavar a máx. 40°C · Planchar a temperatura media · No usar blanqueador', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa Oxford azul es un clásico atemporal del armario masculino. Su tejido de algodón Oxford de alta calidad ofrece durabilidad y un aspecto distintivo.' },
+        8: {  nombre: 'Pantalón Chino Beige', categoria: 'Pantalones', ref: 'VC-PT-002', precio: '185', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Algodón sarga 100% · Forro parcial · Cremallera YKK', uso: 'Oficina casual, fines de semana, viajes, reuniones informales', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón chino beige es la prenda versátil por excelencia. Su corte recto y su color neutro lo hacen combinable con casi cualquier prenda de tu armario.' },
+        9: {  nombre: 'Reloj de Pulsera Plateado', categoria: 'Accesorios', ref: 'VC-AC-003', precio: '450', icono: '&#x1F9E2;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Caja de acero inoxidable 316L · Cristal de zafiro · Pulsera de acero', uso: 'Uso diario, oficina, eventos formales, reuniones de negocios', cuidados: 'Evitar campos magnéticos · Limpiar con paño suave · Revisar junta cada 2 años', origen: 'Diseñado en París · Manufactura Suiza', descripcion: 'Este reloj de pulsera plateado combina la precisión suiza con el diseño parisino. Su esfera minimalista y su pulsera de acero inoxidable lo convierten en el complemento perfecto.' },
+        10: { nombre: 'Camisa de Seda Negra', categoria: 'Camisas', ref: 'VC-CM-002', precio: '275', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Seda natural 100% · Botones de madreperla · Costuras francesas', uso: 'Cenas formales, eventos de gala, citas especiales, fiestas elegantes', cuidados: 'Lavar en seco exclusivamente · No planchar directamente · Guardar en funda de tela', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa de seda negra es la pieza de declaración por excelencia. La seda natural de la más alta calidad ofrece un brillo sutil y una caída extraordinaria.' },
+        11: { nombre: 'Bolso Tote de Cuero', categoria: 'Accesorios', ref: 'VC-AC-004', precio: '390', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Cuero granulado 100% · Forro de algodón · Cremallera metálica dorada', uso: 'Uso diario, oficina, viajes, compras', cuidados: 'Limpiar con paño húmedo · Aplicar crema hidratante cada 2 meses · Guardar con relleno', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este bolso tote de cuero es el compañero perfecto para el día a día. Su amplio interior y su diseño minimalista lo hacen tan funcional como elegante.' },
+        12: { nombre: 'Mocasín de Cuero Marrón', categoria: 'Calzado', ref: 'VC-OX-003', precio: '210', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '39', badge: '', materiales: 'Cuero nobuk · Suela de goma · Forro de piel de cerdo', uso: 'Oficina casual, fines de semana, viajes, looks preppy', cuidados: 'Cepillar regularmente · Aplicar protector de nobuk · Evitar mojar', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El mocasín de cuero marrón es el calzado perfecto para quienes buscan comodidad sin sacrificar el estilo. Su diseño clásico se adapta tanto a la oficina como al tiempo libre.' },
+        13: { nombre: 'Camisa Denim Clásica', categoria: 'Camisas', ref: 'VC-CM-003', precio: '169', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Denim de algodón 100% · Botones metálicos · Costuras de doble pespunte', uso: 'Looks casuales, fines de semana, conciertos, salidas informales', cuidados: 'Lavar del revés a máx. 30°C · No usar secadora · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa denim clásica es un básico del armario moderno. Su tejido de denim de alta calidad ofrece durabilidad y un estilo desenfadado pero cuidado.' },
+        14: { nombre: 'Pantalón de Algodón Beige', categoria: 'Pantalones', ref: 'VC-PT-003', precio: '175', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Algodón orgánico 100% · Elástico en cintura · Costuras planas', uso: 'Uso diario, oficina casual, fines de semana, viajes', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar blanqueador', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de algodón beige combina la comodidad del algodón orgánico con un diseño moderno y funcional. Perfecto para el día a día.' },
+        15: { nombre: 'Pulsera de Cuero Trenzada', categoria: 'Accesorios', ref: 'VC-AC-005', precio: '85', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Cuero trenzado · Cierre magnético · Remaches de acero', uso: 'Uso diario, looks casuales, capas con otros accesorios', cuidados: 'Evitar el contacto con agua · Limpiar con paño seco · Guardar en bolsa de tela', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta pulsera de cuero trenzada es el accesorio perfecto para añadir un toque de personalidad a cualquier look. Su diseño artesanal la hace única.' },
+        16: { nombre: 'Zapato Derby Marrón', categoria: 'Calzado', ref: 'VC-OX-004', precio: '265', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '41', badge: '', materiales: 'Cuero pulido · Suela de cuero · Forro de becerro', uso: 'Oficina, bodas de día, eventos semi-formales, reuniones', cuidados: 'Limpiar con betún marrón · Usar hormas · Evitar mojar', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'El zapato Derby marrón es una alternativa elegante al Oxford clásico. Su sistema de cordones abierto ofrece un ajuste más cómodo sin sacrificar la sofisticación.' },
+        17: { nombre: 'Camisa Blanca de Vestir', categoria: 'Camisas', ref: 'VC-CM-004', precio: '149', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Algodón egipcio 100% · Botones de nácar · Cuello italiano', uso: 'Oficina, entrevistas, eventos formales, bodas', cuidados: 'Lavar a máx. 40°C · Planchar a alta temperatura · Almidonar opcional', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa blanca de vestir es el pilar de cualquier armario elegante. Confeccionada en algodón egipcio de fibra larga, ofrece una suavidad y durabilidad inigualables.' },
+        18: { nombre: 'Pantalón Slim Fit Negro', categoria: 'Pantalones', ref: 'VC-PT-004', precio: '195', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Algodón elástico 98% · Elastano 2% · Cremallera YKK', uso: 'Oficina, salidas nocturnas, citas, looks modernos', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón slim fit negro es la prenda perfecta para un look moderno y sofisticado. Su tejido con elastano ofrece comodidad y libertad de movimiento.' },
+        19: { nombre: 'Bufanda de Cachemira', categoria: 'Accesorios', ref: 'VC-AC-006', precio: '125', icono: '&#x1F9F6;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Cachemira 100% · Flecos artesanales · Tejido de punto', uso: 'Invierno, viajes, oficina, eventos al aire libre', cuidados: 'Lavar a mano en agua fría · Secar en horizontal · No retorcer', origen: 'Diseñado en París · Confeccionado en Escocia', descripcion: 'Esta bufanda de cachemira es el epítome del lujo y la calidez. La cachemira de la más alta calidad ofrece una suavidad incomparable y un aislamiento térmico excepcional.' },
+        20: { nombre: 'Botín de Cuero Marrón', categoria: 'Calzado', ref: 'VC-OX-005', precio: '340', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '43', badge: '', materiales: 'Cuero vegetal · Suela Vibram · Forro de piel', uso: 'Invierno, oficina, looks casuales elegantes, fines de semana', cuidados: 'Limpiar con crema nutritiva · Cepillar regularmente · Aplicar impermeabilizante', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'Este botín de cuero marrón combina la robustez del calzado de invierno con la elegancia del diseño parisino. La suela Vibram garantiza tracción y durabilidad.' },
+        21: { nombre: 'Zapato Oxford Premium', categoria: 'Calzado', ref: 'VC-OX-001', precio: '295', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '42', badge: 'Nuevo', materiales: 'Cuero italiano 100% · Suela de caucho natural · Costuras Goodyear', uso: 'Oficina ejecutiva, bodas formales, eventos de gala, reuniones de negocio', cuidados: 'Limpiar con paño húmedo · Usar crema hidratante para cuero · Evitar exposición prolongada al sol', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Este zapato Oxford Premium es la máxima expresión de la elegancia clásica. Fabricado en cuero italiano de primera calidad, cada par es ensamblado a mano por artesanos expertos.' },
+        22: { nombre: 'Camisa de Lino Blanca', categoria: 'Camisas', ref: 'VC-LN-001', precio: '189', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Lino 100% natural · Botones de nácar · Costuras reforzadas', uso: 'Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio', cuidados: 'Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta camisa de lino blanco es la pieza esencial que toda persona elegante necesita en su armario. Confeccionada en lino 100% natural de la región de Bretaña.' },
+        23: { nombre: 'Pantalón de Vestir Gris', categoria: 'Pantalones', ref: 'VC-PT-001', precio: '245', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: 'Nuevo', materiales: 'Lana virgen 100% · Forro de viscosa · Cremallera YKK', uso: 'Oficina ejecutiva, reuniones formales, cenas de negocios, entrevistas', cuidados: 'Lavar en seco · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de vestir gris perla combina la tradición sartorial francesa con un corte moderno.' },
+        24: { nombre: 'Cinturón de Cuero', categoria: 'Accesorios', ref: 'VC-AC-001', precio: '135', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: 'Nuevo', materiales: 'Cuero vacuno 100% · Hebilla de acero inoxidable · Costuras a mano', uso: 'Uso diario, oficina, eventos casuales y formales', cuidados: 'Limpiar con paño seco · Aplicar acondicionador de cuero cada 3 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este cinturón de cuero auténtico es el accesorio indispensable para completar cualquier atuendo.' },
+        25: { nombre: 'Gafas de Sol Doradas', categoria: 'Accesorios', ref: 'VC-AC-002', precio: '175', icono: '&#x1F453;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Montura de acetato italiano · Lentes polarizadas Carl Zeiss · Bisagras de titanio', uso: 'Uso diario, viajes, eventos al aire libre, protección solar', cuidados: 'Limpiar con paño de microfibra · Guardar en estuche rígido', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Estas gafas de sol doradas combinan estilo y protección con montura de acetato italiano.' },
+        26: { nombre: 'Botín Chelsea Negro', categoria: 'Calzado', ref: 'VC-OX-002', precio: '320', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '40', badge: '', materiales: 'Cuero barnizado · Elásticos laterales · Suela de crepe', uso: 'Oficina, salidas casuales elegantes, citas, eventos nocturnos', cuidados: 'Limpiar con paño húmedo · Usar betún para cuero barnizado', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El botín Chelsea negro es un ícono de la moda masculina. Diseño minimalista con elásticos laterales.' },
+        27: { nombre: 'Camisa Oxford Azul', categoria: 'Camisas', ref: 'VC-CM-001', precio: '159', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Algodón Oxford 100% · Botones de pasta · Cuello abotonable', uso: 'Oficina casual, looks preppy, fines de semana, reuniones informales', cuidados: 'Lavar a máx. 40°C · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa Oxford azul es un clásico atemporal del armario masculino.' },
+        28: { nombre: 'Pantalón Chino Beige', categoria: 'Pantalones', ref: 'VC-PT-002', precio: '185', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Algodón sarga 100% · Forro parcial · Cremallera YKK', uso: 'Oficina casual, fines de semana, viajes, reuniones informales', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón chino beige es la prenda versátil por excelencia.' },
+        29: { nombre: 'Reloj de Pulsera Plateado', categoria: 'Accesorios', ref: 'VC-AC-003', precio: '450', icono: '&#x1F9E2;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Caja de acero inoxidable 316L · Cristal de zafiro · Pulsera de acero', uso: 'Uso diario, oficina, eventos formales, reuniones de negocios', cuidados: 'Evitar campos magnéticos · Limpiar con paño suave', origen: 'Diseñado en París · Manufactura Suiza', descripcion: 'Este reloj combina la precisión suiza con el diseño parisino.' },
+        30: { nombre: 'Camisa de Seda Negra', categoria: 'Camisas', ref: 'VC-CM-002', precio: '275', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Seda natural 100% · Botones de madreperla · Costuras francesas', uso: 'Cenas formales, eventos de gala, citas especiales, fiestas elegantes', cuidados: 'Lavar en seco exclusivamente · No planchar directamente', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa de seda negra es la pieza de declaración por excelencia.' },
+        31: { nombre: 'Bolso Tote de Cuero', categoria: 'Accesorios', ref: 'VC-AC-004', precio: '390', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Cuero granulado 100% · Forro de algodón · Cremallera metálica dorada', uso: 'Uso diario, oficina, viajes, compras', cuidados: 'Limpiar con paño húmedo · Aplicar crema hidratante cada 2 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este bolso tote de cuero es el compañero perfecto para el día a día.' }
+      };
+
+      // ---------- Product View: Cargar producto dinámicamente ----------
+      function cargarProducto(id) {
+        const prod = productosDB[id];
+        if (!prod) return;
+
+        const section = document.getElementById('productViewSection');
+        if (!section) return;
+
+        // Actualizar badge
+        const badge = section.querySelector('.product-view__badge');
+        if (badge) {
+          if (prod.badge) {
+            badge.textContent = prod.badge;
+            badge.className = 'product-view__badge product-view__badge--' + (prod.badge === 'Nuevo' ? 'new' : 'sale');
+            badge.style.display = '';
+          } else {
+            badge.style.display = 'none';
+          }
+        }
+
+        // Actualizar icono de imagen principal
+        const mainIcon = section.querySelector('.product-view__image-icon');
+        const mainLabel = section.querySelector('.product-view__image-placeholder span:last-child');
+        if (mainIcon) mainIcon.innerHTML = prod.icono;
+        if (mainLabel) mainLabel.textContent = prod.nombre;
+
+        // Actualizar breadcrumb
+        const breadcrumb = section.querySelector('.product-view__breadcrumb');
+        if (breadcrumb) {
+          const links = breadcrumb.querySelectorAll('a');
+          const current = breadcrumb.querySelector('span[aria-current="page"]');
+          if (links.length >= 3) links[2].textContent = prod.categoria;
+          if (current) current.textContent = prod.nombre;
+        }
+
+        // Actualizar nombre
+        const nameEl = section.querySelector('.product-view__name');
+        if (nameEl) nameEl.textContent = prod.nombre;
+
+        // Actualizar referencia
+        const refSpan = section.querySelector('.product-view__ref span:last-child');
+        if (refSpan) refSpan.textContent = prod.ref;
+
+        // Actualizar opciones de talla
+        const sizeOptions = section.querySelector('.product-view__size-options');
+        if (sizeOptions) {
+          sizeOptions.innerHTML = '';
+          prod.tallas.forEach(function(talla) {
+            const label = document.createElement('label');
+            label.className = 'product-view__size-btn';
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'talla';
+            input.value = talla;
+            if (talla === prod.tallaDefault) input.checked = true;
+            const span = document.createElement('span');
+            span.textContent = talla;
+            label.appendChild(input);
+            label.appendChild(span);
+            sizeOptions.appendChild(label);
+          });
+        }
+
+        // Actualizar precio
+        const priceEl = section.querySelector('.product-view__price-current');
+        if (priceEl) {
+          priceEl.textContent = prod.precio + '€';
+          priceEl.setAttribute('content', prod.precio);
+        }
+
+        // Actualizar descripción
+        const descEl = section.querySelector('.product-view__description-text');
+        if (descEl) descEl.textContent = prod.descripcion;
+
+        // Actualizar detalles
+        const detailValues = section.querySelectorAll('.product-view__detail-value');
+        if (detailValues.length >= 4) {
+          detailValues[0].textContent = prod.materiales;
+          detailValues[1].textContent = prod.uso;
+          detailValues[2].textContent = prod.cuidados;
+          detailValues[3].textContent = prod.origen;
+        }
+
+        // Scroll suave hacia la sección
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // ---------- Click en tarjetas de producto → Vista previa ----------
+      document.querySelectorAll('.product-card').forEach(function(card) {
+        card.addEventListener('click', function(e) {
+          // No disparar si se hizo clic en el botón de wishlist
+          if (e.target.closest('.product-card__wishlist')) return;
+          const id = this.getAttribute('data-product-id');
+          if (id) cargarProducto(id);
+        });
+        // Cursor pointer para indicar que es clickeable
+        card.style.cursor = 'pointer';
+      });
       document.querySelectorAll('.product-card__wishlist').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           e.stopPropagation();
