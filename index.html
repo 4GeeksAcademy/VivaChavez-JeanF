@@ -54,10 +54,39 @@
         <button class="navbar__btn navbar__btn--hide-mobile" aria-label="Favoritos" title="Favoritos">
           &#x2661;
         </button>
-        <button class="navbar__btn" aria-label="Carrito de compras" title="Carrito">
-          &#x1F6CD;
-          <span class="navbar__btn-badge" aria-label="3 artículos en el carrito">3</span>
-        </button>
+        <div class="navbar__cart-wrapper">
+          <button class="navbar__btn" id="cartDropdownToggle" aria-label="Carrito de compras" title="Carrito" aria-expanded="false">
+            &#x1F6CD;
+            <span class="navbar__btn-badge" id="cartBadge" aria-label="3 artículos en el carrito">3</span>
+          </button>
+
+          <!-- ============================================
+               DROPDOWN DEL CARRITO — Como Shein / Amazon
+               ============================================ -->
+          <div class="cart-dropdown" id="cartDropdown" role="dialog" aria-modal="false" aria-label="Vista previa del carrito">
+            <div class="cart-dropdown__header">
+              <span class="cart-dropdown__title">Tu Carrito</span>
+              <span class="cart-dropdown__count" id="cartDropdownCount">3 artículos</span>
+            </div>
+
+            <div class="cart-dropdown__items" id="cartDropdownItems">
+              <!-- Los items se renderizan dinámicamente con JS -->
+            </div>
+
+            <div class="cart-dropdown__footer">
+              <div class="cart-dropdown__subtotal">
+                <span>Subtotal</span>
+                <span class="cart-dropdown__subtotal-value" id="cartDropdownSubtotal">1.123€</span>
+              </div>
+              <a href="#cartSection" class="btn btn--primary cart-dropdown__checkout" id="cartDropdownCheckout">
+                &#x1F6CD; Proceder al pago
+              </a>
+              <a href="#cartSection" class="cart-dropdown__view-all">
+                Ver carrito completo &#x2192;
+              </a>
+            </div>
+          </div>
+        </div>
         <button class="navbar__menu-btn" id="menuToggle" aria-label="Abrir menú móvil" aria-expanded="false">
           &#x2630;
         </button>
@@ -1045,6 +1074,80 @@
     </section>
 
     <!-- ============================================
+         CARRITO — Vista completa del carrito
+         ============================================ -->
+    <section class="cart section" id="cartSection" aria-label="Vista completa del carrito">
+      <div class="container">
+        <h2 class="section__title cart__title">&#x1F6D2; Tu Carrito</h2>
+        <p class="cart__count" id="cartItemsCount">3 artículos en tu carrito</p>
+
+        <div class="cart__layout">
+          <!-- Columna izquierda: Listado de productos -->
+          <div class="cart__items" id="cartItemsContainer" role="list" aria-label="Productos en el carrito">
+            <!-- Los productos se renderizan dinámicamente desde cartData -->
+          </div>
+
+          <!-- Columna derecha: Resumen / Totalización -->
+          <aside class="cart__summary" aria-label="Resumen del pedido">
+            <div class="cart__summary-card">
+              <h3 class="cart__summary-title">Resumen del pedido</h3>
+
+              <div class="cart__summary-row">
+                <span class="cart__summary-label">Subtotal</span>
+                <span class="cart__summary-value" id="cartSubtotal">1.123€</span>
+              </div>
+
+              <div class="cart__summary-row">
+                <span class="cart__summary-label">Env&iacute;o</span>
+                <span class="cart__summary-value" id="cartShipping">15€</span>
+              </div>
+
+              <div class="cart__summary-row">
+                <span class="cart__summary-label">Impuestos (21% IVA)</span>
+                <span class="cart__summary-value" id="cartTax">235,83€</span>
+              </div>
+
+              <div class="cart__summary-row">
+                <span class="cart__summary-label">Descuento</span>
+                <span class="cart__summary-value cart__summary-value--discount" id="cartDiscount">0€</span>
+              </div>
+
+              <hr class="cart__summary-divider">
+
+              <div class="cart__summary-row cart__summary-row--total">
+                <span class="cart__summary-label">Total</span>
+                <span class="cart__summary-value cart__summary-value--total" id="cartTotal">1.358,83€</span>
+              </div>
+
+              <button class="btn btn--primary cart__checkout-btn" id="cartCheckoutBtn" aria-label="Proceder al pago">
+                &#x1F6D2; Comprar ahora
+              </button>
+
+              <div class="cart__summary-coupon">
+                <label for="couponCode" class="cart__summary-coupon-label">&#x1F3B0; &iquest;Tienes un cup&oacute;n?</label>
+                <div class="cart__summary-coupon-row">
+                  <input
+                    type="text"
+                    id="couponCode"
+                    class="cart__summary-coupon-input"
+                    placeholder="C&oacute;digo de cup&oacute;n"
+                    aria-label="Código de cupón"
+                  />
+                  <button class="cart__summary-coupon-btn" id="applyCouponBtn" aria-label="Aplicar cupón">Aplicar</button>
+                </div>
+                <p class="cart__summary-coupon-msg" id="couponMsg" aria-live="polite"></p>
+              </div>
+
+              <div class="cart__summary-security">
+                <span aria-hidden="true">&#x1F512;</span> Pago seguro con encriptaci&oacute;n SSL
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
          NEWSLETTER
          ============================================ -->
     <section class="newsletter animate-on-scroll" aria-label="Suscríbete al boletín">
@@ -1084,7 +1187,7 @@
             VivaChavez
           </div>
           <p class="footer__desc">
-            Fundada en Par&iacute;s, VivaChavez nace de la pasi&oacute;n por la
+            Fundada en París, VivaChavez nace de la pasi&oacute;n por la
             elegancia atemporal. Cada pieza es dise&ntilde;ada con los mejores
             materiales y la artesan&iacute;a francesa m&aacute;s exquisita.
           </p>
@@ -1426,17 +1529,17 @@
         18: { nombre: 'Pantalón Slim Fit Negro', categoria: 'Pantalones', ref: 'VC-PT-004', precio: '195', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Algodón elástico 98% · Elastano 2% · Cremallera YKK', uso: 'Oficina, salidas nocturnas, citas, looks modernos', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón slim fit negro es la prenda perfecta para un look moderno y sofisticado. Su tejido con elastano ofrece comodidad y libertad de movimiento.' },
         19: { nombre: 'Bufanda de Cachemira', categoria: 'Accesorios', ref: 'VC-AC-006', precio: '125', icono: '&#x1F9F6;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Cachemira 100% · Flecos artesanales · Tejido de punto', uso: 'Invierno, viajes, oficina, eventos al aire libre', cuidados: 'Lavar a mano en agua fría · Secar en horizontal · No retorcer', origen: 'Diseñado en París · Confeccionado en Escocia', descripcion: 'Esta bufanda de cachemira es el epítome del lujo y la calidez. La cachemira de la más alta calidad ofrece una suavidad incomparable y un aislamiento térmico excepcional.' },
         20: { nombre: 'Botín de Cuero Marrón', categoria: 'Calzado', ref: 'VC-OX-005', precio: '340', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '43', badge: '', materiales: 'Cuero vegetal · Suela Vibram · Forro de piel', uso: 'Invierno, oficina, looks casuales elegantes, fines de semana', cuidados: 'Limpiar con crema nutritiva · Cepillar regularmente · Aplicar impermeabilizante', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'Este botín de cuero marrón combina la robustez del calzado de invierno con la elegancia del diseño parisino. La suela Vibram garantiza tracción y durabilidad.' },
-        21: { nombre: 'Zapato Oxford Premium', categoria: 'Calzado', ref: 'VC-OX-001', precio: '295', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '42', badge: 'Nuevo', materiales: 'Cuero italiano 100% · Suela de caucho natural · Costuras Goodyear', uso: 'Oficina ejecutiva, bodas formales, eventos de gala, reuniones de negocio', cuidados: 'Limpiar con paño húmedo · Usar crema hidratante para cuero · Evitar exposición prolongada al sol', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Este zapato Oxford Premium es la máxima expresión de la elegancia clásica. Fabricado en cuero italiano de primera calidad, cada par es ensamblado a mano por artesanos expertos.' },
-        22: { nombre: 'Camisa de Lino Blanca', categoria: 'Camisas', ref: 'VC-LN-001', precio: '189', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Lino 100% natural · Botones de nácar · Costuras reforzadas', uso: 'Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio', cuidados: 'Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta camisa de lino blanco es la pieza esencial que toda persona elegante necesita en su armario. Confeccionada en lino 100% natural de la región de Bretaña.' },
-        23: { nombre: 'Pantalón de Vestir Gris', categoria: 'Pantalones', ref: 'VC-PT-001', precio: '245', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: 'Nuevo', materiales: 'Lana virgen 100% · Forro de viscosa · Cremallera YKK', uso: 'Oficina ejecutiva, reuniones formales, cenas de negocios, entrevistas', cuidados: 'Lavar en seco · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de vestir gris perla combina la tradición sartorial francesa con un corte moderno.' },
-        24: { nombre: 'Cinturón de Cuero', categoria: 'Accesorios', ref: 'VC-AC-001', precio: '135', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: 'Nuevo', materiales: 'Cuero vacuno 100% · Hebilla de acero inoxidable · Costuras a mano', uso: 'Uso diario, oficina, eventos casuales y formales', cuidados: 'Limpiar con paño seco · Aplicar acondicionador de cuero cada 3 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este cinturón de cuero auténtico es el accesorio indispensable para completar cualquier atuendo.' },
-        25: { nombre: 'Gafas de Sol Doradas', categoria: 'Accesorios', ref: 'VC-AC-002', precio: '175', icono: '&#x1F453;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Montura de acetato italiano · Lentes polarizadas Carl Zeiss · Bisagras de titanio', uso: 'Uso diario, viajes, eventos al aire libre, protección solar', cuidados: 'Limpiar con paño de microfibra · Guardar en estuche rígido', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Estas gafas de sol doradas combinan estilo y protección con montura de acetato italiano.' },
-        26: { nombre: 'Botín Chelsea Negro', categoria: 'Calzado', ref: 'VC-OX-002', precio: '320', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '40', badge: '', materiales: 'Cuero barnizado · Elásticos laterales · Suela de crepe', uso: 'Oficina, salidas casuales elegantes, citas, eventos nocturnos', cuidados: 'Limpiar con paño húmedo · Usar betún para cuero barnizado', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El botín Chelsea negro es un ícono de la moda masculina. Diseño minimalista con elásticos laterales.' },
-        27: { nombre: 'Camisa Oxford Azul', categoria: 'Camisas', ref: 'VC-CM-001', precio: '159', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Algodón Oxford 100% · Botones de pasta · Cuello abotonable', uso: 'Oficina casual, looks preppy, fines de semana, reuniones informales', cuidados: 'Lavar a máx. 40°C · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa Oxford azul es un clásico atemporal del armario masculino.' },
-        28: { nombre: 'Pantalón Chino Beige', categoria: 'Pantalones', ref: 'VC-PT-002', precio: '185', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Algodón sarga 100% · Forro parcial · Cremallera YKK', uso: 'Oficina casual, fines de semana, viajes, reuniones informales', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón chino beige es la prenda versátil por excelencia.' },
-        29: { nombre: 'Reloj de Pulsera Plateado', categoria: 'Accesorios', ref: 'VC-AC-003', precio: '450', icono: '&#x1F9E2;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Caja de acero inoxidable 316L · Cristal de zafiro · Pulsera de acero', uso: 'Uso diario, oficina, eventos formales, reuniones de negocios', cuidados: 'Evitar campos magnéticos · Limpiar con paño suave', origen: 'Diseñado en París · Manufactura Suiza', descripcion: 'Este reloj combina la precisión suiza con el diseño parisino.' },
-        30: { nombre: 'Camisa de Seda Negra', categoria: 'Camisas', ref: 'VC-CM-002', precio: '275', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Seda natural 100% · Botones de madreperla · Costuras francesas', uso: 'Cenas formales, eventos de gala, citas especiales, fiestas elegantes', cuidados: 'Lavar en seco exclusivamente · No planchar directamente', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa de seda negra es la pieza de declaración por excelencia.' },
-        31: { nombre: 'Bolso Tote de Cuero', categoria: 'Accesorios', ref: 'VC-AC-004', precio: '390', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Cuero granulado 100% · Forro de algodón · Cremallera metálica dorada', uso: 'Uso diario, oficina, viajes, compras', cuidados: 'Limpiar con paño húmedo · Aplicar crema hidratante cada 2 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este bolso tote de cuero es el compañero perfecto para el día a día.' }
+        21: { nombre: 'Zapato Oxford Premium', categoria: 'Calzado', ref: 'VC-OX-001', precio: '295', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '42', badge: 'Nuevo', materiales: 'Cuero italiano 100% · Suela de caucho natural · Costuras Goodyear', uso: 'Oficina ejecutiva, bodas formales, eventos de gala, reuniones de negocio', cuidados: 'Limpiar con paño húmedo · Usar crema hidratante para cuero · Evitar exposición prolongada al sol', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Este zapato Oxford Premium es la máxima expresión de la elegancia clásica. Fabricado en cuero italiano de primera calidad, cada par es ensamblado a mano por artesanos expertos con la tradicional técnica Goodyear, garantizando durabilidad y confort excepcionales.' },
+        22: { nombre: 'Camisa de Lino Blanca', categoria: 'Camisas', ref: 'VC-LN-001', precio: '189', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Lino 100% natural · Botones de nácar · Costuras reforzadas', uso: 'Oficina, eventos casuales elegantes, cenas formales, reuniones de negocio', cuidados: 'Lavar a máx. 30°C · No usar blanqueador · Planchar a temperatura media', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Esta camisa de lino blanco es la pieza esencial que toda persona elegante necesita en su armario. Confeccionada en lino 100% natural de la región de Bretaña, Francia, ofrece una frescura incomparable y una caída impecable.' },
+        23: { nombre: 'Pantalón de Vestir Gris', categoria: 'Pantalones', ref: 'VC-PT-001', precio: '245', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: 'Nuevo', materiales: 'Lana virgen 100% · Forro de viscosa · Cremallera YKK', uso: 'Oficina ejecutiva, reuniones formales, cenas de negocios, entrevistas', cuidados: 'Lavar en seco · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón de vestir gris perla combina la tradición sartorial francesa con un corte moderno. La lana virgen de primera calidad garantiza un drapeado perfecto y una durabilidad excepcional.' },
+        24: { nombre: 'Cinturón de Cuero', categoria: 'Accesorios', ref: 'VC-AC-001', precio: '135', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: 'Nuevo', materiales: 'Cuero vacuno 100% · Hebilla de acero inoxidable · Costuras a mano', uso: 'Uso diario, oficina, eventos casuales y formales', cuidados: 'Limpiar con paño seco · Aplicar acondicionador de cuero cada 3 meses', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este cinturón de cuero auténtico es el accesorio indispensable para completar cualquier atuendo. La hebilla minimalista en acero inoxidable pulido aporta un toque de sofisticación discreta.' },
+        25: { nombre: 'Gafas de Sol Doradas', categoria: 'Accesorios', ref: 'VC-AC-002', precio: '175', icono: '&#x1F453;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: 'Nuevo', materiales: 'Montura de acetato italiano · Lentes polarizadas Carl Zeiss · Bisagras de titanio', uso: 'Uso diario, viajes, eventos al aire libre, protección solar', cuidados: 'Limpiar con paño de microfibra · Guardar en estuche rígido · Evitar temperaturas extremas', origen: 'Diseñado en París · Confeccionado en Italia', descripcion: 'Estas gafas de sol doradas combinan estilo y protección. La montura de acetato italiano y las lentes polarizadas Carl Zeiss ofrecen una visión nítida y una protección UV400 completa.' },
+        26: { nombre: 'Botín Chelsea Negro', categoria: 'Calzado', ref: 'VC-OX-002', precio: '320', icono: '&#x1F460;', tallas: ['38','39','40','41','42','43'], tallaDefault: '40', badge: '', materiales: 'Cuero barnizado · Elásticos laterales · Suela de crepe', uso: 'Oficina, salidas casuales elegantes, citas, eventos nocturnos', cuidados: 'Limpiar con paño húmedo · Usar betún para cuero barnizado · Evitar agua en exceso', origen: 'Diseñado en París · Confeccionado en Portugal', descripcion: 'El botín Chelsea negro es un ícono de la moda masculina. Su diseño minimalista con elásticos laterales y tiro trasero lo hace tan práctico como elegante.' },
+        27: { nombre: 'Camisa Oxford Azul', categoria: 'Camisas', ref: 'VC-CM-001', precio: '159', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Algodón Oxford 100% · Botones de pasta · Cuello abotonable', uso: 'Oficina casual, looks preppy, fines de semana, reuniones informales', cuidados: 'Lavar a máx. 40°C · Planchar a temperatura media · No usar blanqueador', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa Oxford azul es un clásico atemporal del armario masculino. Su tejido de algodón Oxford de alta calidad ofrece durabilidad y un aspecto distintivo.' },
+        28: { nombre: 'Pantalón Chino Beige', categoria: 'Pantalones', ref: 'VC-PT-002', precio: '185', icono: '&#x1F456;', tallas: ['S','M','L','XL'], tallaDefault: 'XL', badge: '', materiales: 'Algodón sarga 100% · Forro parcial · Cremallera YKK', uso: 'Oficina casual, fines de semana, viajes, reuniones informales', cuidados: 'Lavar a máx. 30°C · Planchar a baja temperatura · No usar secadora', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este pantalón chino beige es la prenda versátil por excelencia. Su corte recto y su color neutro lo hacen combinable con casi cualquier prenda de tu armario.' },
+        29: { nombre: 'Reloj de Pulsera Plateado', categoria: 'Accesorios', ref: 'VC-AC-003', precio: '450', icono: '&#x1F9E2;', tallas: ['S','M','L','XL'], tallaDefault: 'M', badge: '', materiales: 'Caja de acero inoxidable 316L · Cristal de zafiro · Pulsera de acero', uso: 'Uso diario, oficina, eventos formales, reuniones de negocios', cuidados: 'Evitar campos magnéticos · Limpiar con paño suave · Revisar junta cada 2 años', origen: 'Diseñado en París · Manufactura Suiza', descripcion: 'Este reloj de pulsera plateado combina la precisión suiza con el diseño parisino. Su esfera minimalista y su pulsera de acero inoxidable lo convierten en el complemento perfecto.' },
+        30: { nombre: 'Camisa de Seda Negra', categoria: 'Camisas', ref: 'VC-CM-002', precio: '275', icono: '&#x1F455;', tallas: ['S','M','L','XL'], tallaDefault: 'S', badge: '', materiales: 'Seda natural 100% · Botones de madreperla · Costuras francesas', uso: 'Cenas formales, eventos de gala, citas especiales, fiestas elegantes', cuidados: 'Lavar en seco exclusivamente · No planchar directamente · Guardar en funda de tela', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'La camisa de seda negra es la pieza de declaración por excelencia. La seda natural de la más alta calidad ofrece un brillo sutil y una caída extraordinaria.' },
+        31: { nombre: 'Bolso Tote de Cuero', categoria: 'Accesorios', ref: 'VC-AC-004', precio: '390', icono: '&#x1F48D;', tallas: ['S','M','L','XL'], tallaDefault: 'L', badge: '', materiales: 'Cuero granulado 100% · Forro de algodón · Cremallera metálica dorada', uso: 'Uso diario, oficina, viajes, compras', cuidados: 'Limpiar con paño húmedo · Aplicar crema hidratante cada 2 meses · Guardar con relleno', origen: 'Diseñado en París · Confeccionado en Francia', descripcion: 'Este bolso tote de cuero es el compañero perfecto para el día a día. Su amplio interior y su diseño minimalista lo hacen tan funcional como elegante.' }
       };
 
       // ---------- Product View: Cargar producto dinámicamente ----------
@@ -1549,6 +1652,408 @@
           }
         });
       });
+
+      // ============================================
+      // CARRITO — Dropdown + Vista completa sincronizados
+      // ============================================
+
+      // ---------- Datos compartidos del carrito ----------
+      var cartData = [
+        { id: 2,  nombre: 'Camisa de Lino Blanca',   ref: 'VC-LN-001', precio: 189, icono: '&#x1F455;', talla: 'M', color: 'Blanco',  cantidad: 2 },
+        { id: 1,  nombre: 'Zapato Oxford Premium',    ref: 'VC-OX-001', precio: 295, icono: '&#x1F460;', talla: '42', color: 'Negro',   cantidad: 1 },
+        { id: 9,  nombre: 'Reloj de Pulsera Plateado', ref: 'VC-AC-003', precio: 450, icono: '&#x1F9E2;', talla: 'Única', color: 'Plateado', cantidad: 1 }
+      ];
+      var couponAplicado = false; // true si se aplicó cupón VIVA10
+
+      // ---------- Renderizar dropdown del carrito ----------
+      function renderizarDropdownCarrito() {
+        var container = document.getElementById('cartDropdownItems');
+        var countEl = document.getElementById('cartDropdownCount');
+        var subtotalEl = document.getElementById('cartDropdownSubtotal');
+        if (!container) return;
+
+        if (cartData.length === 0) {
+          container.innerHTML = '' +
+            '<div class="cart-dropdown__empty">' +
+              '<div class="cart-dropdown__empty-icon" aria-hidden="true">&#x1F6D2;</div>' +
+              '<p class="cart-dropdown__empty-text">Tu carrito est&aacute; vac&iacute;o</p>' +
+            '</div>';
+          if (countEl) countEl.textContent = '0 artículos';
+          if (subtotalEl) subtotalEl.textContent = '0€';
+          return;
+        }
+
+        var html = '';
+        var subtotal = 0;
+        var totalItems = 0;
+
+        cartData.forEach(function(item) {
+          var totalItem = item.precio * item.cantidad;
+          subtotal += totalItem;
+          totalItems += item.cantidad;
+
+          html += '' +
+            '<div class="cart-dropdown-item" data-cart-id="' + item.id + '">' +
+              '<div class="cart-dropdown-item__image">' +
+                '<span aria-hidden="true">' + item.icono + '</span>' +
+              '</div>' +
+              '<div class="cart-dropdown-item__info">' +
+                '<div class="cart-dropdown-item__name">' + item.nombre + '</div>' +
+                '<div class="cart-dropdown-item__meta">' + item.cantidad + ' × ' + item.precio + '€ · Talla ' + item.talla + '</div>' +
+              '</div>' +
+              '<span class="cart-dropdown-item__price">' + totalItem.toLocaleString('es-ES') + '€</span>' +
+              '<button class="cart-dropdown-item__remove" data-cart-id="' + item.id + '" aria-label="Eliminar ' + item.nombre + '" title="Eliminar">&#x2716;</button>' +
+            '</div>';
+        });
+
+        container.innerHTML = html;
+
+        if (countEl) countEl.textContent = totalItems + ' artículo' + (totalItems !== 1 ? 's' : '');
+        if (subtotalEl) subtotalEl.textContent = subtotal.toLocaleString('es-ES') + '€';
+
+        // Eventos eliminar en dropdown
+        container.querySelectorAll('.cart-dropdown-item__remove').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var id = parseInt(this.getAttribute('data-cart-id'), 10);
+            eliminarDelCarrito(id);
+          });
+        });
+      }
+
+      // ---------- Renderizar vista completa del carrito ----------
+      function renderizarCarritoCompleto() {
+        var container = document.getElementById('cartItemsContainer');
+        var countEl = document.getElementById('cartItemsCount');
+        var subtotalEl = document.getElementById('cartSubtotal');
+        var taxEl = document.getElementById('cartTax');
+        var totalEl = document.getElementById('cartTotal');
+        var shippingEl = document.getElementById('cartShipping');
+        var discountEl = document.getElementById('cartDiscount');
+        var badge = document.getElementById('cartBadge');
+
+        if (!container) return;
+
+        if (cartData.length === 0) {
+          container.innerHTML = '' +
+            '<div class="cart__empty">' +
+              '<div class="cart__empty-icon" aria-hidden="true">&#x1F6D2;</div>' +
+              '<h3 class="cart__empty-title">Tu carrito est&aacute; vac&iacute;o</h3>' +
+              '<p class="cart__empty-text">Explora nuestra colecci&oacute;n y agrega productos que te encanten.</p>' +
+              '<a href="/coleccion" class="btn btn--primary">Explorar Colecci&oacute;n &#x2192;</a>' +
+            '</div>';
+          if (countEl) countEl.textContent = '0 artículos en tu carrito';
+          if (subtotalEl) subtotalEl.textContent = '0€';
+          if (taxEl) taxEl.textContent = '0€';
+          if (totalEl) totalEl.textContent = '0€';
+          if (shippingEl) { shippingEl.textContent = '0€'; shippingEl.className = 'cart__summary-value'; }
+          if (discountEl) discountEl.textContent = '0€';
+          if (badge) badge.textContent = '0';
+          return;
+        }
+
+        var html = '';
+        var subtotal = 0;
+        var totalItems = 0;
+
+        cartData.forEach(function(item, index) {
+          var totalItem = item.precio * item.cantidad;
+          subtotal += totalItem;
+          totalItems += item.cantidad;
+          var animDelay = (index * 0.05).toFixed(2);
+
+          html += '' +
+            '<article class="cart-item" role="listitem" data-cart-id="' + item.id + '" data-price="' + item.precio + '" style="animation-delay: ' + animDelay + 's;">' +
+              '<div class="cart-item__image">' +
+                '<div class="cart-item__image-placeholder">' +
+                  '<span aria-hidden="true">' + item.icono + '</span>' +
+                '</div>' +
+              '</div>' +
+              '<div class="cart-item__details">' +
+                '<h3 class="cart-item__name">' + item.nombre + '</h3>' +
+                '<p class="cart-item__meta">Referencia: ' + item.ref + '</p>' +
+                '<p class="cart-item__meta">Talla: ' + item.talla + '</p>' +
+                '<p class="cart-item__meta">Color: ' + item.color + '</p>' +
+              '</div>' +
+              '<div class="cart-item__unit-price">' +
+                '<span class="cart-item__label">Precio unitario</span>' +
+                '<span class="cart-item__value">' + item.precio + '€</span>' +
+              '</div>' +
+              '<div class="cart-item__qty">' +
+                '<label for="cart-qty-' + item.id + '" class="sr-only">Cantidad</label>' +
+                '<button class="cart-item__qty-btn cart-item__qty-dec" aria-label="Reducir cantidad" data-cart-id="' + item.id + '">−</button>' +
+                '<input type="number" id="cart-qty-' + item.id + '" class="cart-item__qty-input" value="' + item.cantidad + '" min="1" max="99" data-cart-id="' + item.id + '" aria-live="polite" />' +
+                '<button class="cart-item__qty-btn cart-item__qty-inc" aria-label="Aumentar cantidad" data-cart-id="' + item.id + '">+</button>' +
+              '</div>' +
+              '<div class="cart-item__total">' +
+                '<span class="cart-item__label">Total</span>' +
+                '<span class="cart-item__total-value" id="cart-total-' + item.id + '">' + totalItem.toLocaleString('es-ES') + '€</span>' +
+              '</div>' +
+              '<button class="cart-item__remove" aria-label="Eliminar producto" data-cart-id="' + item.id + '" title="Eliminar">&#x2716;</button>' +
+            '</article>';
+        });
+
+        container.innerHTML = html;
+
+        // Actualizar totales
+        var iva = subtotal * 0.21;
+        var total = subtotal + iva;
+
+        if (countEl) countEl.textContent = totalItems + ' artículo' + (totalItems !== 1 ? 's' : '') + ' en tu carrito';
+        if (subtotalEl) subtotalEl.textContent = subtotal.toLocaleString('es-ES') + '€';
+        if (taxEl) taxEl.textContent = iva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+        if (totalEl) totalEl.textContent = total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+        if (shippingEl) {
+          shippingEl.textContent = subtotal >= 150 ? 'GRATIS' : '15€';
+          shippingEl.className = 'cart__summary-value' + (subtotal >= 150 ? ' cart__summary-value--free' : '');
+        }
+        if (discountEl) {
+          if (couponAplicado) {
+            var descuento = subtotal * 0.10;
+            discountEl.textContent = '-' + descuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            discountEl.style.color = '#27ae60';
+            // Recalcular IVA y total con descuento
+            var newSubtotal = subtotal - descuento;
+            var newIva = newSubtotal * 0.21;
+            var newTotal = newSubtotal + newIva;
+            if (taxEl) taxEl.textContent = newIva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            if (totalEl) totalEl.textContent = newTotal.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+          } else {
+            discountEl.textContent = '0€';
+            discountEl.style.color = '';
+          }
+        }
+        if (badge) badge.textContent = totalItems;
+
+        // Eventos cantidad (-)
+        container.querySelectorAll('.cart-item__qty-dec').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var id = parseInt(this.getAttribute('data-cart-id'), 10);
+            cambiarCantidad(id, -1);
+          });
+        });
+
+        // Eventos cantidad (+)
+        container.querySelectorAll('.cart-item__qty-inc').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var id = parseInt(this.getAttribute('data-cart-id'), 10);
+            cambiarCantidad(id, 1);
+          });
+        });
+
+        // Eventos input cambio manual
+        container.querySelectorAll('.cart-item__qty-input').forEach(function(input) {
+          input.addEventListener('change', function() {
+            var id = parseInt(this.getAttribute('data-cart-id'), 10);
+            var val = parseInt(this.value, 10);
+            if (isNaN(val) || val < 1) val = 1;
+            if (val > 99) val = 99;
+            actualizarCantidad(id, val);
+          });
+        });
+
+        // Eventos eliminar
+        container.querySelectorAll('.cart-item__remove').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var id = parseInt(this.getAttribute('data-cart-id'), 10);
+            var item = this.closest('.cart-item');
+            if (item) {
+              item.style.animation = 'fadeInUp 0.3s ease reverse both';
+              setTimeout(function() {
+                eliminarDelCarrito(id);
+              }, 300);
+            }
+          });
+        });
+      }
+
+      // ---------- Cambiar cantidad (delta: +1 o -1) ----------
+      function cambiarCantidad(id, delta) {
+        for (var i = 0; i < cartData.length; i++) {
+          if (cartData[i].id === id) {
+            var nueva = cartData[i].cantidad + delta;
+            if (nueva < 1) nueva = 1;
+            if (nueva > 99) nueva = 99;
+            cartData[i].cantidad = nueva;
+            break;
+          }
+        }
+        syncAll();
+      }
+
+      // ---------- Actualizar cantidad (valor exacto) ----------
+      function actualizarCantidad(id, valor) {
+        for (var i = 0; i < cartData.length; i++) {
+          if (cartData[i].id === id) {
+            cartData[i].cantidad = valor;
+            break;
+          }
+        }
+        syncAll();
+      }
+
+      // ---------- Eliminar producto ----------
+      function eliminarDelCarrito(id) {
+        var newCart = [];
+        for (var i = 0; i < cartData.length; i++) {
+          if (cartData[i].id !== id) {
+            newCart.push(cartData[i]);
+          }
+        }
+        cartData = newCart;
+        syncAll();
+      }
+
+      // ---------- Sincronizar todo (dropdown + vista completa) ----------
+      function syncAll() {
+        renderizarCarritoCompleto();
+        renderizarDropdownCarrito();
+      }
+
+      // ============================================
+      // DROPDOWN — Toggle y cierre
+      // ============================================
+
+      var cartToggle = document.getElementById('cartDropdownToggle');
+      var cartDropdown = document.getElementById('cartDropdown');
+
+      if (cartToggle && cartDropdown) {
+        cartToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var isOpen = cartDropdown.classList.contains('open');
+          if (isOpen) {
+            cerrarDropdownCarrito();
+          } else {
+            abrirDropdownCarrito();
+          }
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function(e) {
+          var wrapper = document.querySelector('.navbar__cart-wrapper');
+          if (wrapper && !wrapper.contains(e.target)) {
+            cerrarDropdownCarrito();
+          }
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && cartDropdown.classList.contains('open')) {
+            cerrarDropdownCarrito();
+            cartToggle.focus();
+          }
+        });
+      }
+
+      function abrirDropdownCarrito() {
+        cartDropdown.classList.add('open');
+        cartToggle.setAttribute('aria-expanded', 'true');
+        renderizarDropdownCarrito();
+      }
+
+      function cerrarDropdownCarrito() {
+        cartDropdown.classList.remove('open');
+        cartToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      // ============================================
+      // ACCIONES — Vaciar, Comprar, Cupón
+      // ============================================
+
+      // ---------- Vaciar carrito ----------
+      var clearBtn = document.getElementById('cartClearBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          if (cartData.length === 0) return;
+          cartData = [];
+          syncAll();
+          cerrarDropdownCarrito();
+        });
+      }
+
+      // ---------- Botón Comprar ----------
+      var checkoutBtn = document.getElementById('cartCheckoutBtn');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() {
+          if (cartData.length === 0) return;
+          var originalText = this.innerHTML;
+          this.innerHTML = '&#x2713; Pedido realizado';
+          this.style.background = '#27ae60';
+          this.disabled = true;
+          setTimeout(function() {
+            checkoutBtn.innerHTML = originalText;
+            checkoutBtn.style.background = '';
+            checkoutBtn.disabled = false;
+          }, 3000);
+        });
+      }
+
+      // ---------- Cupón de descuento ----------
+      var couponBtn = document.getElementById('applyCouponBtn');
+      var couponMsg = document.getElementById('couponMsg');
+      if (couponBtn) {
+        couponBtn.addEventListener('click', function() {
+          var input = document.getElementById('couponCode');
+          if (!input || !input.value.trim()) return;
+
+          var code = input.value.trim().toUpperCase();
+          var discountEl = document.getElementById('cartDiscount');
+          var subtotalEl = document.getElementById('cartSubtotal');
+
+          if (!discountEl || !subtotalEl) return;
+
+          if (code === 'VIVA10') {
+            // Calcular subtotal desde cartData
+            var sub = 0;
+            for (var i = 0; i < cartData.length; i++) {
+              sub += cartData[i].precio * cartData[i].cantidad;
+            }
+            var descuento = sub * 0.10;
+            couponAplicado = true;
+            discountEl.textContent = '-' + descuento.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            discountEl.style.color = '#27ae60';
+            this.textContent = '&#x2713; Aplicado';
+            this.style.background = '#27ae60';
+            this.disabled = true;
+            input.disabled = true;
+            if (couponMsg) {
+              couponMsg.textContent = '&#x1F389; &iexcl;Cup&oacute;n aplicado! 10% de descuento.';
+              couponMsg.style.color = '#27ae60';
+            }
+
+            var newSubtotal = sub - descuento;
+            var iva = newSubtotal * 0.21;
+            var total = newSubtotal + iva;
+            var taxEl = document.getElementById('cartTax');
+            var totalEl = document.getElementById('cartTotal');
+            if (taxEl) taxEl.textContent = iva.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+            if (totalEl) totalEl.textContent = total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+          } else {
+            this.textContent = 'C&oacute;digo inv&aacute;lido';
+            this.style.background = '#e74c3c';
+            if (couponMsg) {
+              couponMsg.textContent = '&#x274C; C&oacute;digo inv&aacute;lido. Intenta con VIVA10.';
+              couponMsg.style.color = '#e74c3c';
+            }
+            var self = this;
+            setTimeout(function() {
+              self.textContent = 'Aplicar';
+              self.style.background = '';
+            }, 2000);
+          }
+        });
+      }
+
+      // ---------- Cerrar dropdown al hacer clic en "Proceder al pago" ----------
+      var checkoutLink = document.getElementById('cartDropdownCheckout');
+      if (checkoutLink) {
+        checkoutLink.addEventListener('click', function(e) {
+          cerrarDropdownCarrito();
+        });
+      }
+
+      // ---------- Inicializar ----------
+      syncAll();
 
     })();
   </script>
