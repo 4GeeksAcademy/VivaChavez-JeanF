@@ -433,6 +433,450 @@
     </section>
 
     <!-- ============================================
+         CATÁLOGO COMPLETO — Grid 4×5 con filtros
+         ============================================ -->
+    <section class="catalogo section" aria-label="Catálogo completo de productos">
+      <div class="container">
+        <header class="section__header">
+          <div>
+            <h2 class="section__title">Cat&aacute;logo</h2>
+            <p class="section__subtitle">Explora nuestra colecci&oacute;n completa</p>
+          </div>
+        </header>
+
+        <!-- Barra de filtros -->
+        <div class="catalogo__filtros" role="search" aria-label="Filtros de productos">
+          <div class="catalogo__filtros-group">
+            <label for="filtro-categoria" class="catalogo__filtros-label">Categor&iacute;a</label>
+            <div class="catalogo__filtros-select-wrapper">
+              <select id="filtro-categoria" class="catalogo__filtros-select" aria-label="Filtrar por categoría">
+                <option value="todas">Todas las categor&iacute;as</option>
+                <option value="Calzado">Calzado</option>
+                <option value="Camisas">Camisas</option>
+                <option value="Pantalones">Pantalones</option>
+                <option value="Accesorios">Accesorios</option>
+              </select>
+            </div>
+          </div>
+          <div class="catalogo__filtros-group">
+            <label for="filtro-talla" class="catalogo__filtros-label">Talla</label>
+            <div class="catalogo__filtros-select-wrapper">
+              <select id="filtro-talla" class="catalogo__filtros-select" aria-label="Filtrar por talla">
+                <option value="todas">Todas las tallas</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+              </select>
+            </div>
+          </div>
+          <button class="catalogo__filtros-reset" id="resetFiltros" aria-label="Limpiar filtros">
+            &#x2716; Limpiar filtros
+          </button>
+        </div>
+
+        <!-- Grid de productos 4×5 -->
+        <div class="catalogo__grid" id="catalogoGrid" role="list" aria-label="Lista de productos del catálogo">
+
+          <!-- Producto 1 -->
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="42">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Zapato Oxford</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Zapato Oxford Premium</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="295">295&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: 42</span>
+            </div>
+          </article>
+
+          <!-- Producto 2 -->
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="M">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Lino</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa de Lino Blanca</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="189">189&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: M</span>
+            </div>
+          </article>
+
+          <!-- Producto 3 -->
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="L">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
+                <span>Pantalón Tailleur</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Pantalones</p>
+              <h3 class="product-card__name" itemprop="name">Pantalón de Vestir Gris</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="245">245&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: L</span>
+            </div>
+          </article>
+
+          <!-- Producto 4 -->
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="S">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
+                <span>Cinturón Cuero</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Cinturón de Cuero</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="135">135&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: S</span>
+            </div>
+          </article>
+
+          <!-- Producto 5 -->
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="M">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F453;</span>
+                <span>Gafas Soleil</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Gafas de Sol Doradas</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="175">175&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: M</span>
+            </div>
+          </article>
+
+          <!-- Producto 6 -->
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="40">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Botín Chelsea</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Botín Chelsea Negro</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="320">320&euro;</span>
+                <span class="product-card__price-old">380&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: 40</span>
+            </div>
+          </article>
+
+          <!-- Producto 7 -->
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="L">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Oxford</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa Oxford Azul</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="159">159&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: L</span>
+            </div>
+          </article>
+
+          <!-- Producto 8 -->
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="XL">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
+                <span>Pantalón Chino</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Pantalones</p>
+              <h3 class="product-card__name" itemprop="name">Pantalón Chino Beige</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="185">185&euro;</span>
+                <span class="product-card__price-old">220&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: XL</span>
+            </div>
+          </article>
+
+          <!-- Producto 9 -->
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="M">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F9E2;</span>
+                <span>Reloj Clásico</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Reloj de Pulsera Plateado</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="450">450&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: M</span>
+            </div>
+          </article>
+
+          <!-- Producto 10 -->
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="S">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Seda</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa de Seda Negra</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="275">275&euro;</span>
+                <span class="product-card__price-old">310&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: S</span>
+            </div>
+          </article>
+
+          <!-- Producto 11 -->
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="L">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
+                <span>Bolso Tote</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Bolso Tote de Cuero</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="390">390&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: L</span>
+            </div>
+          </article>
+
+          <!-- Producto 12 -->
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="39">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Mocasín</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Mocasín de Cuero Marrón</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="210">210&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: 39</span>
+            </div>
+          </article>
+
+          <!-- Producto 13 -->
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="XL">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Denim</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa Denim Clásica</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="169">169&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: XL</span>
+            </div>
+          </article>
+
+          <!-- Producto 14 -->
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="M">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
+                <span>Pantalón Algodón</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Pantalones</p>
+              <h3 class="product-card__name" itemprop="name">Pantalón de Algodón Beige</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="175">175&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: M</span>
+            </div>
+          </article>
+
+          <!-- Producto 15 -->
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="S">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F48D;</span>
+                <span>Pulsera Cuero</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Pulsera de Cuero Trenzada</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="85">85&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: S</span>
+            </div>
+          </article>
+
+          <!-- Producto 16 -->
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="41">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Zapato Derby</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Zapato Derby Marrón</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="265">265&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: 41</span>
+            </div>
+          </article>
+
+          <!-- Producto 17 -->
+          <article class="product-card" role="listitem" data-categoria="Camisas" data-talla="M">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F455;</span>
+                <span>Camisa Blanca</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Camisas</p>
+              <h3 class="product-card__name" itemprop="name">Camisa Blanca de Vestir</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="149">149&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: M</span>
+            </div>
+          </article>
+
+          <!-- Producto 18 -->
+          <article class="product-card" role="listitem" data-categoria="Pantalones" data-talla="S">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F456;</span>
+                <span>Pantalón Slim</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Pantalones</p>
+              <h3 class="product-card__name" itemprop="name">Pantalón Slim Fit Negro</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="195">195&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: S</span>
+            </div>
+          </article>
+
+          <!-- Producto 19 -->
+          <article class="product-card" role="listitem" data-categoria="Accesorios" data-talla="XL">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F9F6;</span>
+                <span>Bufanda</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Accesorios</p>
+              <h3 class="product-card__name" itemprop="name">Bufanda de Cachemira</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="125">125&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: XL</span>
+            </div>
+          </article>
+
+          <!-- Producto 20 -->
+          <article class="product-card" role="listitem" data-categoria="Calzado" data-talla="43">
+            <div class="product-card__image">
+              <div class="product-card__image-inner">
+                <span class="product-card__image-icon" aria-hidden="true">&#x1F460;</span>
+                <span>Botín Cuero</span>
+              </div>
+              <button class="product-card__wishlist" aria-label="Añadir a favoritos">&#x2661;</button>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">Calzado</p>
+              <h3 class="product-card__name" itemprop="name">Botín de Cuero Marrón</h3>
+              <div class="product-card__price">
+                <span class="product-card__price-current" itemprop="price" content="340">340&euro;</span>
+              </div>
+              <span class="product-card__talla">Talla: 43</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Contador de resultados -->
+        <div class="catalogo__contador" id="catalogoContador" aria-live="polite">
+          Mostrando 20 productos
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
          NEWSLETTER
          ============================================ -->
     <section class="newsletter animate-on-scroll" aria-label="Suscríbete al boletín">
@@ -666,6 +1110,57 @@
             }, 3000);
           }
         });
+      }
+
+      // ---------- Catálogo: Filtros por categoría y talla ----------
+      const filtroCategoria = document.getElementById('filtro-categoria');
+      const filtroTalla = document.getElementById('filtro-talla');
+      const resetBtn = document.getElementById('resetFiltros');
+      const catalogoGrid = document.getElementById('catalogoGrid');
+      const contador = document.getElementById('catalogoContador');
+
+      if (filtroCategoria && filtroTalla && catalogoGrid) {
+        const productos = catalogoGrid.querySelectorAll('.product-card');
+
+        function filtrarProductos() {
+          const categoria = filtroCategoria.value;
+          const talla = filtroTalla.value;
+          let visibles = 0;
+
+          productos.forEach(function(producto) {
+            const prodCat = producto.getAttribute('data-categoria');
+            const prodTalla = producto.getAttribute('data-talla');
+
+            const coincideCategoria = categoria === 'todas' || prodCat === categoria;
+            const coincideTalla = talla === 'todas' || prodTalla === talla;
+            const visible = coincideCategoria && coincideTalla;
+
+            if (visible) {
+              producto.classList.remove('product-card--hidden');
+              visibles++;
+            } else {
+              producto.classList.add('product-card--hidden');
+            }
+          });
+
+          if (contador) {
+            contador.textContent = 'Mostrando ' + visibles + ' producto' + (visibles !== 1 ? 's' : '');
+          }
+        }
+
+        filtroCategoria.addEventListener('change', filtrarProductos);
+        filtroTalla.addEventListener('change', filtrarProductos);
+
+        if (resetBtn) {
+          resetBtn.addEventListener('click', function() {
+            filtroCategoria.value = 'todas';
+            filtroTalla.value = 'todas';
+            filtrarProductos();
+          });
+        }
+
+        // Inicializar
+        filtrarProductos();
       }
 
       // ---------- Wishlist toggle ----------
