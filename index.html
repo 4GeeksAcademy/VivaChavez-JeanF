@@ -60,6 +60,15 @@
 </head>
 <body>
 
+  <div class="welcome-modal" id="welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeModalTitle" aria-hidden="true">
+    <div class="welcome-modal__overlay" id="welcomeModalOverlay"></div>
+    <div class="welcome-modal__card" role="document">
+      <button class="welcome-modal__close" id="welcomeModalClose" type="button" aria-label="Cerrar popup">&times;</button>
+      <h2 class="welcome-modal__title" id="welcomeModalTitle">Bienvenido a VivaChavez</h2>
+      <img class="welcome-modal__image" src="chavez%202.0.png" alt="Promocion principal VivaChavez" />
+    </div>
+  </div>
+
   <!-- ============================================
        NAVBAR — Reutilizable en todas las vistas
        ============================================ -->
@@ -1480,6 +1489,42 @@
   <script>
     (function() {
       'use strict';
+
+      // ---------- Popup modal de bienvenida ----------
+      var welcomeModal = document.getElementById('welcomeModal');
+      var welcomeModalClose = document.getElementById('welcomeModalClose');
+
+      function showWelcomeModal() {
+        if (!welcomeModal) return;
+        welcomeModal.classList.add('is-visible');
+        welcomeModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hideWelcomeModal() {
+        if (!welcomeModal) return;
+        welcomeModal.classList.remove('is-visible');
+        welcomeModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      if (welcomeModalClose) {
+        welcomeModalClose.addEventListener('click', hideWelcomeModal);
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && welcomeModal && welcomeModal.classList.contains('is-visible')) {
+          hideWelcomeModal();
+        }
+      });
+
+      var previousOnload = window.onload;
+      window.onload = function(event) {
+        if (typeof previousOnload === 'function') {
+          previousOnload(event);
+        }
+        showWelcomeModal();
+      };
 
       // ---------- Mobile Menu Toggle ----------
       const menuToggle = document.getElementById('menuToggle');
