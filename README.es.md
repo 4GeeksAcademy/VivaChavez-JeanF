@@ -1,44 +1,48 @@
-# HTML Hello
+# VivaChavez - Entrega Rehecha (Tailwind + 5 vistas)
 
-El boilerplate más básico para cualquier estudiante de 4Geeks Academy, empieza tu primer sitio web desde cero.
+Este proyecto fue rehecho para cumplir la retroalimentacion de entrega:
 
-> Tienes un video tutorial sobre [cómo usar esta plantilla para crear tu primer sitio web aquí](https://youtu.be/dfbDCMu_p-0).
+- Se elimino el CSS manual pesado.
+- Se implemento Tailwind CSS por CDN en todas las vistas.
+- Se dividio el sitio en 5 archivos HTML separados por vista.
+- Se mantuvieron mejoras SEO (meta tags y Schema.org en vistas clave).
 
-## ¿Qué hacer a continuación?
+## Tecnologias
 
-Crea un archivo `index.html` con [la estructura básica de HTML](https://4geeks.com/es/lesson/what-is-html-learn-html-es#estructura-de-pgina) y ve el resultado en vivo corriendo un servidor web utilizando el siguiente comando:
+- HTML5
+- Tailwind CSS v4 via CDN
+
+## Estructura de vistas (5 archivos)
+
+- index.html - Inicio
+- coleccion.html - Catalogo
+- producto.html - Detalle de producto
+- carrito.html - Vista de carrito
+- checkout.html - Proceso de pago
+
+## Ejecucion local
 
 ```bash
-$ pip3 install flask && python3 server.py
+pip3 install flask && python3 server.py
 ```
 
-- Puedes crear tantos archivos HTML cómo desees.
-- También puedes crear archivos CSS e importarlos en tu página web utilizando una etiqueta `<link>` ubicándola entre las etiquetas `<head></head>`, de la siguiente manera:
+Luego abre en el navegador:
 
-```html
-<head>
-  ...
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
-```
+- http://127.0.0.1:3000/index.html
 
-- Si deseas usar Tailwind CSS, agrégalo de forma opcional mediante el CDN oficial de Tailwind CSS v4 dentro del mismo `<head>`:
+## SEO implementado
 
-```html
-<head>
-  ...
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
-```
+- title y meta description por vista
+- canonical por vista
+- Open Graph en inicio
+- Schema.org tipo WebSite en inicio
+- Schema.org tipo Product en producto
 
+## Evidencia de PageSpeed (requerida para entrega)
 
-## Agradecimientos
+Se dejo la carpeta evidencias para adjuntar la captura solicitada:
 
-Esta y otras plantillas son utilizadas para [aprender a programar](https://4geeksacademy.com/es/aprender-a-programar/aprender-a-programar-desde-cero) por parte de los alumnos de 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp). 
+- evidencias/pagespeed-mobile.png
+- evidencias/pagespeed-desktop.png
 
-Realizado por [Alejandro Sánchez](https://twitter.com/alesanchezr) y muchos otros contribuyentes. 
-
-Conoce más sobre nuestros [Cursos de Programación](https://4geeksacademy.com/es/curso-de-programacion-desde-cero/?lang=es) para convertirte en [Full Stack Developer](https://4geeksacademy.com/es/desarrollador-full-stack/desarrollador-full-stack), o nuestro [Data Science Bootcamp](https://4geeksacademy.com/es/coding-bootcamps/curso-datascience-machine-learning).
+Nota: las capturas deben generarse corriendo el sitio y evaluando cada vista en PageSpeed Insights.
